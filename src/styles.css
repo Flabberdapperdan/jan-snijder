@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* // FONTS & TYPOGRAPHY \\ */
+:root {
+  --neue-regrade-bold-aalt: "aalt" on;
+  --neue-regrade-bold-dlig: "dlig" on;
+  --neue-regrade-bold-ss01: "ss01" on;
+}
+
+@font-face {
+  font-family: "Neue Regrade";
+  src: url("./assets/fonts/Neue\ Regrade\ Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Regrade";
+  src: url("./assets/fonts/Neue\ Regrade\ Medium\ Italic.otf");
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Regrade";
+  src: url("./assets/fonts/Neue\ Regrade\ Regular.otf");
+  font-weight: regular;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Regrade";
+  src: url("./assets/fonts/Neue\ Regrade\ Semibold.otf");
+  font-weight: semi-bold;
+  font-style: normal;
+}
+
+* {
+  /* font-family: "Noto Serif", serif; */
+  font-family: "Neue Regrade";
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h1 {
+  font-size: 7em;
+}
+h2 {
+  font-size: 2em;
+}
