@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path dist",
+    "build": "ng build",
+    "build-github": "ng build --output-path dist --base-href /jan-snijder/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:jan-snijder": "node dist/jan-snijder/server/server.mjs"
