@@ -6,6 +6,11 @@
   --neue-regrade-bold-dlig: "dlig" on;
   --neue-regrade-bold-ss01: "ss01" on;
 }
+/* VARIABLES */
+:root {
+  /* colors */
+  --black: #4f4f4f
+}
 
 @font-face {
   font-family: "Neue Regrade";
