@@ -1,7 +1,5 @@
 <div class="carousel-container">
-  <div
-    class="carousel-inner"
-  >
+  <div class="carousel-inner">
     <div *ngFor="let image of images; let i = index" class="carousel-item">
       <img [src]="image" [alt]="'Slide ' + (i + 1)" class="carousel-image" />
     </div>
