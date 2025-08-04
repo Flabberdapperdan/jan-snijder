@@ -1,28 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { CarouselService, ImageObj } from './carousel.service';
+import { ImgurAlbumReturn } from './carousel.service';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
   imports: [CommonModule],
+  providers: [],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css',
 })
 export class CarouselComponent implements OnInit {
-  @Input() images: string[] = [];
   @Input() autoPlay: boolean = false;
   @Input() interval: number = 5000;
+  images: string[] = [];
 
   currentIndex: number = 0;
   translateX: number = 0;
   private autoPlayInterval: any;
 
+  constructor(private service: CarouselService) {}
+
   ngOnInit(): void {
-    this.images = [
-      'https://cdn.nos.nl/image/2024/03/29/1067142/1024x576a.jpg',
-      'https://cdn.nos.nl/image/2024/03/29/1067142/1024x576a.jpg',
-      'https://cdn.nos.nl/image/2024/03/29/1067142/1024x576a.jpg',
-    ];
+    this.service.getImagesObjects().subscribe((result: ImgurAlbumReturn) => {
+      result.data.forEach((imageObj: ImageObj) => {
+        this.images.push(imageObj.link);
+      });
+    });
+
+    console.log(this.images);
 
     if (this.autoPlay) {
       this.startAutoPlay();
