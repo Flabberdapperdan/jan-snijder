@@ -23,17 +23,19 @@ export class CarouselComponent implements OnInit {
   constructor(private service: CarouselService) {}
 
   ngOnInit(): void {
-    this.service.getImagesObjects().subscribe((result: ImgurAlbumReturn) => {
-      result.data.forEach((imageObj: ImageObj) => {
-        this.images.push(imageObj.link);
-      });
-    });
-
-    console.log(this.images);
-
+    this.getImages();
     if (this.autoPlay) {
       this.startAutoPlay();
     }
+  }
+
+  getImages(): void {
+    this.service.getImagesObjects().subscribe((result: ImgurAlbumReturn) => {
+      result.data.forEach((imageObj: ImageObj) => {
+        this.images.push(imageObj.link);
+        console.log(this.images);
+      });
+    });
   }
 
   ngOnDestroy(): void {
@@ -60,6 +62,8 @@ export class CarouselComponent implements OnInit {
     const containerWidth =
       document.querySelector('.carousel-container')?.clientWidth || 0;
     this.translateX = -index * containerWidth;
+    console.log(this.translateX);
+
 
     // Reset the autoplay timer when manually navigating
     if (this.autoPlay) {
