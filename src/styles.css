@@ -52,11 +52,26 @@ body {
 }
 h1 {
   font-size: 7em;
-  margin: auto;
 }
 h2 {
   font-size: 4em;
 }
 h3 {
   font-size: 2em;
+}
+
+h1,
+h2,
+h3 {
+  margin: auto;
+}
+
+.main-wrapper {
+  width: 100%;
+
+  content: "";
+
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
