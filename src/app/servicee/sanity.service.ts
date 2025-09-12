@@ -8,11 +8,10 @@ import imageUrlBuilder from '@sanity/image-url';
   providedIn: 'root',
 })
 export class SanityService {
-  constructor() {}
 
   sanityClientCredentials = {
-    option: create({
-      projectId: 'YOUR_PROJECT_ID',
+    option: sanityClient({
+      projectId: 'etofyibz',
       dataset: 'production',
     }),
   };

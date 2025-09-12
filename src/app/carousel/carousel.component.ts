@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { CarouselService, ImageObj } from './carousel.service';
 import { ImgurAlbumReturn } from './carousel.service';
+import { SanityService } from '../servicee/sanity.service';
 
 @Component({
   selector: 'app-carousel',
@@ -20,7 +21,7 @@ export class CarouselComponent implements OnInit {
   translateX: number = 0;
   private autoPlayInterval: any;
 
-  constructor(private service: CarouselService) {}
+  constructor(private service: SanityService) {}
 
   ngOnInit(): void {
     this.getImages();
@@ -30,11 +31,11 @@ export class CarouselComponent implements OnInit {
   }
 
   getImages(): void {
-    this.service.getImagesObjects().subscribe((result: ImgurAlbumReturn) => {
-      result.data.forEach((imageObj: ImageObj) => {
-        this.images.push(imageObj.link);
-        console.log(this.images);
-      });
+    console.log('Fetching images from Sanity');
+
+    this.service.getPaintings().then((data) => {
+      this.images = data.map((item) => this.service.urlFor(item.image).url());
+      console.log(this.images);
     });
   }
 

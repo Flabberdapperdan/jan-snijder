@@ -9,6 +9,7 @@ export default defineConfig({
 
   projectId: 'etofyibz',
   dataset: 'jan-snijder',
+  basePath: '/admin',
 
   plugins: [structureTool(), visionTool()],
 
