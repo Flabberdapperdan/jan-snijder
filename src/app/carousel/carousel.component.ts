@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { CarouselService, ImageObj } from './carousel.service';
-import { ImgurAlbumReturn } from './carousel.service';
-import { SanityService } from '../servicee/sanity.service';
+import { SanityService } from './service/sanity.service';
+import { Painting, PaintingUrl } from './carousel.types';
 
 @Component({
   selector: 'app-carousel',
@@ -15,7 +14,7 @@ import { SanityService } from '../servicee/sanity.service';
 export class CarouselComponent implements OnInit {
   @Input() autoPlay: boolean = false;
   @Input() interval: number = 5000;
-  images: string[] = [];
+  paintings: PaintingUrl[] = [];
 
   currentIndex: number = 0;
   translateX: number = 0;
@@ -24,18 +23,20 @@ export class CarouselComponent implements OnInit {
   constructor(private service: SanityService) {}
 
   ngOnInit(): void {
-    this.getImages();
+    this.getPaintings();
     if (this.autoPlay) {
       this.startAutoPlay();
     }
   }
 
-  getImages(): void {
-    console.log('Fetching images from Sanity');
-
+  getPaintings(): void {
     this.service.getPaintings().then((data) => {
-      this.images = data.map((item) => this.service.urlFor(item.image).url());
-      console.log(this.images);
+      data.map((item: Painting) => {
+        this.paintings.push({
+          url: this.service.urlFor(item.image).url(),
+          title: item.title,
+        });
+      });
     });
   }
 
@@ -50,7 +51,7 @@ export class CarouselComponent implements OnInit {
   }
 
   nextSlide(): void {
-    if (this.currentIndex < this.images.length - 1) {
+    if (this.currentIndex < this.paintings.length - 1) {
       this.goToSlide(this.currentIndex + 1);
     } else if (this.autoPlay) {
       // Loop back to first slide when autoplay reaches the end
@@ -64,7 +65,6 @@ export class CarouselComponent implements OnInit {
       document.querySelector('.carousel-container')?.clientWidth || 0;
     this.translateX = -index * containerWidth;
     console.log(this.translateX);
-
 
     // Reset the autoplay timer when manually navigating
     if (this.autoPlay) {

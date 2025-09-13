@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ExhibitsComponent } from './exhibits/exhibits.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { SanityClient } from '@sanity/client';
 
 export const routes: Routes = [
   { path: '', title: 'Home', component: HomeComponent },
