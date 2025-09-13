@@ -18,19 +18,19 @@
 }
 @font-face {
   font-family: "Neue Regrade";
-  src: url("./assets/fonts/Neue\ Regrade\ Medium\ Italic.otf");
+  src: url("/assets/fonts/Neue\ Regrade\ Medium\ Italic.otf");
   font-weight: medium;
   font-style: normal;
 }
 @font-face {
   font-family: "Neue Regrade";
-  src: url("./assets/fonts/Neue\ Regrade\ Regular.otf");
+  src: url("/assets/fonts/Neue\ Regrade\ Regular.otf");
   font-weight: regular;
   font-style: normal;
 }
 @font-face {
   font-family: "Neue Regrade";
-  src: url("./assets/fonts/Neue\ Regrade\ Semibold.otf");
+  src: url("/assets/fonts/Neue\ Regrade\ Semibold.otf");
   font-weight: semi-bold;
   font-style: normal;
 }
