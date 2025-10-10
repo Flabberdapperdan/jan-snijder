@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { ExhibitComponent } from './exhibit/exhibit.component'
 
 @Component({
   selector: 'app-exhibits',
   standalone: true,
-  imports: [],
+  imports: [ExhibitComponent],
   templateUrl: './exhibits.component.html',
-  styleUrl: './exhibits.component.css'
+  styleUrl: './exhibits.component.css',
 })
-export class ExhibitsComponent {
-
-}
+export class ExhibitsComponent {}
