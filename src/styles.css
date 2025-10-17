@@ -16,9 +16,11 @@
   /* colors */
   --primary: #4f4f4f;
   --secondary: #828282;
-  --tertiary: #DDDAD0;
-  --accent: #F8F3CE;
+  --tertiary: #dddad0;
+  --accent: #ffb22c;
+
   --white: #fffffe;
+  --black: #131313;
 }
 
 /* // GENERAL STYLING \\ */
@@ -32,21 +34,6 @@ body {
 
   background: var(--white);
 }
-h1 {
-  font-size: 6em;
-}
-h2 {
-  font-size: 3em;
-}
-h3 {
-  font-size: 2em;
-}
-h4 {
-  font-size: 1.5em;
-}
-h5 {
-  font-size: 1.2em;
-}
 
 h1,
 h2,
@@ -55,6 +42,27 @@ h4,
 h5,
 p {
   margin: auto;
+}
+
+h1 {
+  font-size: 6em;
+  color: var(--black);
+}
+h2 {
+  font-size: 3em;
+  color: var(--primary);
+}
+h3 {
+  font-size: 2em;
+  color: var(--primary);
+}
+h4 {
+  font-size: 1.5em;
+  color: var(--primary);
+}
+h5 {
+  font-size: 1.2em;
+  color: var(--primary);
 }
 
 .main-wrapper {
