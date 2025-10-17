@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { ExhibitComponent } from './exhibit/exhibit.component'
+import { ExhibitsService } from './service/exhibits.service'
 
 @Component({
   selector: 'app-exhibits',
@@ -8,4 +9,13 @@ import { ExhibitComponent } from './exhibit/exhibit.component'
   templateUrl: './exhibits.component.html',
   styleUrl: './exhibits.component.css',
 })
-export class ExhibitsComponent {}
+export class ExhibitsComponent implements OnInit {
+
+  constructor(private service: ExhibitsService) { }
+
+  ngOnInit(): void {
+    this.service.getExhibits().then((data) => {
+      console.log(data)
+    })
+  }
+}
