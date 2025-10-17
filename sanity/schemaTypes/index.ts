@@ -1,4 +1,4 @@
-import { homeType } from "./homeType";
-import { paintingType } from "./paintingType";
+import { homeType } from "./home.type";
+import { paintingType } from "./painting.type";
 
 export const schemaTypes = [paintingType, homeType]
