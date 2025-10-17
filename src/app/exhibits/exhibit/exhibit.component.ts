@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-exhibit',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core'
   templateUrl: './exhibit.component.html',
   styleUrl: './exhibit.component.css',
 })
-export class ExhibitComponent {}
+export class ExhibitComponent {
+  @Input() name: string = '';
+  @Input() year: number = 0;
+  @Input() location: string = '';
+  @Input() description: string = '';
+
+  constructor() {}
+}
