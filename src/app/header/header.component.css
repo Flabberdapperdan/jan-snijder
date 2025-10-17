@@ -8,13 +8,13 @@ header {
 
 a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--primary);
 
 }
 a:after {
   display:block;
   content: '';
-  border-bottom: 1px var(--black) solid;
+  border-bottom: 1px var(--primary) solid;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
