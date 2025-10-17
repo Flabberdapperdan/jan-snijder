@@ -1,0 +1,11 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+
+  margin: auto;
+  padding: 1em 3em;
+}
+
+a {
+  color: var(--accent);
+}
