@@ -17,7 +17,7 @@ export class SanityService {
       }
     `;
   async getPaintings(): Promise<Painting[]> {
-    return await client.fetch<Painting[]>(this.Paintings_Query, {}, {}); // Do we need options here?
+    return await client.fetch<Painting[]>(this.Paintings_Query, {}, {});
   }
 
   urlFor = (source: any) => imageUrlBuilder(client).image(source);
