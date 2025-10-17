@@ -1,4 +1,13 @@
 <div class="main-wrapper">
   <h1>Exposities</h1>
-  <app-exhibit></app-exhibit>
+  <div class="exhibits-container">
+    @for (exhibit of exhibits; track $index) {
+      <app-exhibit
+        [name]="exhibit.name"
+        [year]="exhibit.year"
+        [location]="exhibit.location"
+        [description]="exhibit.description"
+      ></app-exhibit>
+    }
+  </div>
 </div>
