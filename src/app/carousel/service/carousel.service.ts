@@ -20,6 +20,5 @@ export class SanityService {
     return await client.fetch<Painting[]>(this.Paintings_Query, {}, {}); // Do we need options here?
   }
 
-  urlFor = (source: any) =>
-    imageUrlBuilder(client).image(source);
+  urlFor = (source: any) => imageUrlBuilder(client).image(source);
 }

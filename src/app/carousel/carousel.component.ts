@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { SanityService } from './service/sanity.service';
-import { Painting, PaintingUrl } from './carousel.types';
+import { CommonModule } from '@angular/common'
+import { Component, Input, OnInit } from '@angular/core'
+import { SanityService } from './service/carousel.service'
+import { Painting, PaintingUrl } from './carousel.types'
 
 @Component({
   selector: 'app-carousel',
