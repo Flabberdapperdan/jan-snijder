@@ -1,7 +1,10 @@
 <div class="carousel-wrapper">
   <div class="carousel-container">
     <!-- <div *ngIf="images; else loader"> -->
-    <div class="carousel-inner" style.transform="translateX({{ translateX }}px)">
+    <div
+      class="carousel-inner"
+      style.transform="translateX({{ translateX }}px)"
+    >
       <div
         *ngFor="let painting of paintings; let i = index"
         class="carousel-item"
@@ -20,7 +23,7 @@
         (click)="prevSlide()"
         [disabled]="currentIndex === 0"
       >
-        &lsaquo;
+        <span>&lsaquo;</span>
       </button>
 
       <div class="carousel-indicators">
@@ -38,7 +41,7 @@
         (click)="nextSlide()"
         [disabled]="currentIndex === paintings.length - 1"
       >
-        &rsaquo;
+        <span>&rsaquo;</span>
       </button>
     </div>
   </div>
