@@ -1,47 +1,23 @@
 /* // FONTS & TYPOGRAPHY \\ */
-:root {
-  --neue-regrade-bold-aalt: "aalt" on;
-  --neue-regrade-bold-dlig: "dlig" on;
-  --neue-regrade-bold-ss01: "ss01" on;
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto-Regular.ttf');
+  font-style: normal;
 }
-/* VARIABLES */
+
+* {
+  font-family: 'Roboto', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* // VARIABLES \\ */
 :root {
   /* colors */
   --black: #4f4f4f;
 }
 
-@font-face {
-  font-family: "Neue Regrade";
-  src: url("./assets/fonts/NeueRegradeBold.otf");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Regrade";
-  src: url("/assets/fonts/NeueRegradeMediumItalic.otf");
-  font-weight: medium;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Regrade";
-  src: url("/assets/fonts/NeueRegradeRegular.otf");
-  font-weight: regular;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Neue Regrade";
-  src: url("/assets/fonts/NeueRegradeSemibold.otf");
-  font-weight: semi-bold;
-  font-style: normal;
-}
-
-* {
-  /* font-family: "Noto Serif", serif; */
-  font-family: "Neue Regrade";
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
+/* // GENERAL STYLING \\ */
 html,
 body {
   margin: 0;
@@ -51,25 +27,34 @@ body {
   overflow-y: hidden;
 }
 h1 {
-  font-size: 7em;
+  font-size: 6em;
 }
 h2 {
-  font-size: 4em;
+  font-size: 3em;
 }
 h3 {
   font-size: 2em;
 }
+h4 {
+  font-size: 1.5em;
+}
+h5 {
+  font-size: 1.2em;
+}
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+p {
   margin: auto;
 }
 
 .main-wrapper {
   width: 100%;
 
-  content: "";
+  content: '';
 
   display: flex;
   flex-direction: column;
