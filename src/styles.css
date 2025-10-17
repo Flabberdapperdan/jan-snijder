@@ -27,7 +27,6 @@
 html,
 body {
   margin: 0;
-  height: 100%;
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -63,15 +62,4 @@ h4 {
 h5 {
   font-size: 1.2em;
   color: var(--primary);
-}
-
-.main-wrapper {
-  width: 100%;
-
-  content: '';
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
 }
