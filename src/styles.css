@@ -1,7 +1,7 @@
 /* // FONTS & TYPOGRAPHY \\ */
 @font-face {
   font-family: 'Roboto';
-  src: url('/assets/fonts/Roboto-Regular.ttf');
+  src: url('./assets/fonts/RobotoSerif.woff2');
   font-style: normal;
 }
 
@@ -9,6 +9,7 @@
   font-family: 'Roboto', serif;
   font-optical-sizing: auto;
   font-style: normal;
+  font-weight: 500;
 }
 
 /* // VARIABLES \\ */
@@ -63,4 +64,8 @@ h4 {
 h5 {
   font-size: 1.2em;
   color: var(--primary);
+}
+h6 {
+  font-size: 1em;
+  color: var(--secondary);
 }
