@@ -1,0 +1,16 @@
+.exhibit-container {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.exhibit-container ul {
+  margin: auto;
+}
+
+.exhibit--information-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
