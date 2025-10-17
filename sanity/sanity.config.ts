@@ -31,6 +31,7 @@ export default defineConfig({
           .items([
             singletonListItem(S, 'home', 'Home'),
             S.documentTypeListItem('painting').title('Schilderijen'),
+            S.documentTypeListItem('exhibit').title('Exposities'),
           ]),
     }),
     visionTool(),
