@@ -7,7 +7,7 @@ import { client } from '../../../../sanity/client';
 })
 export class ExhibitsService {
   private Exhibits_Query = `
-    *[_type == "exhibit"]{
+    *[_type == "exhibit"] | order(year desc){
       _id,
       name,
       year,
