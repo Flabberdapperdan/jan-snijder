@@ -12,10 +12,12 @@
     [class.visible]="showSelectedPainting"
     (click)="onClickClose()"
   >
-    <img
-      class="painting-full-screen"
-      [src]="selectedPainting?.url"
-      [alt]="`${selectedPainting?.title}--full-screen`"
-    />
+    <div class="painting-full-screen-wrapper">
+      <img
+        class="painting-full-screen"
+        [src]="selectedPainting?.url"
+        [alt]="`${selectedPainting?.title}--full-screen`"
+      />
+    </div>
   </div>
 </div>
