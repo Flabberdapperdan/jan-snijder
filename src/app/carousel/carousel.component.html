@@ -1,53 +1,21 @@
-<div class="carousel-wrapper">
-  <div class="carousel-container">
-    <!-- <div *ngIf="images; else loader"> -->
-    <div
-      class="carousel-inner"
-      style.transform="translateX({{ translateX }}px)"
-    >
-      <div
-        *ngFor="let painting of paintings; let i = index"
-        class="carousel-item"
-      >
-        <img
-          [src]="painting.url"
-          [alt]="'Slide ' + (i + 1)"
-          class="carousel-image"
-        />
-      </div>
-    </div>
-
-    <div class="carousel-controls">
-      <button
-        class="carousel-control prev"
-        (click)="prevSlide()"
-        [disabled]="currentIndex === 0"
-      >
-        <span>&lsaquo;</span>
-      </button>
-
-      <div class="carousel-indicators">
-        <span
-          *ngFor="let painting of paintings; let i = index"
-          class="indicator"
-          [class.active]="i === currentIndex"
-          (click)="goToSlide(i)"
-        >
-        </span>
-      </div>
-
-      <button
-        class="carousel-control next"
-        (click)="nextSlide()"
-        [disabled]="currentIndex === paintings.length - 1"
-      >
-        <span>&rsaquo;</span>
-      </button>
-    </div>
+<div id="paintings-container">
+  @for (painting of paintings; track $index) {
+    <img
+      class="painting"
+      [src]="painting.url"
+      [alt]="painting.title"
+      (click)="onClickPainting($index)"
+    />
+  }
+  <div
+    class="painting-full-screen-container"
+    [class.visible]="showSelectedPainting"
+  >
+    <img
+      class="painting-full-screen"
+      [src]="selectedPainting?.url"
+      [alt]="`${selectedPainting?.title}--full-screen`"
+      (click)="onClickClose()"
+    />
   </div>
 </div>
-
-<!-- <ng-template #loader>
-      <div>LOADING!</div>
-    </ng-template> -->
-<!-- </div> -->
