@@ -3,7 +3,13 @@
   background: var(--off-white);
   padding: 12px;
   border-radius: 4px;
-  max-width: min(700px, 90vw);
+  max-width: min(600px, 90vw);
+}
+
+.exhibit:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--tertiary);
 }
 
 .exhibit-information {
