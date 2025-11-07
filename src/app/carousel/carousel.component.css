@@ -28,7 +28,7 @@ img.painting {
   width: calc(100vw - 4rem);
   height: calc(100vh - 4rem);
   padding: 2rem;
-  background-color: rgb(from var(--tertiary) r g b / 0.5);
+  background-color: rgb(from var(--secondary) r g b / 0.8);
   display: none;
 
   justify-content: center;
