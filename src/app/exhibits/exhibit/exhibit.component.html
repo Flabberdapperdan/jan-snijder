@@ -1,7 +1,7 @@
-<div class="exhibit-container">
-  <h3 class="exhibit--title">{{ name }}</h3>
-  <p class="exhibit--information-container">
-    <span class="exhibit--year-location">{{ year }}, {{ location }}</span>
-    <span class="exhibit--description">{{ description }}</span>
-  </p>
+<div class="exhibit" (click)="onClick()">
+  <h3 class="exhibit-title">{{ name }}</h3>
+  <div class="exhibit-information" [class.visible]="showInformation">
+    <h4 class="exhibit-year-location">{{ year }}, {{ location }}</h4>
+    <p class="exhibit-description">{{ description }}</p>
+  </div>
 </div>

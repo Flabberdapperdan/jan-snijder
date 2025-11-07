@@ -1,17 +1,16 @@
-.exhibit-container {
-  border: 2px solid var(--accent);
-  background: var(--white);
+.exhibit {
+  border: 1px solid var(--primary);
+  background: var(--off-white);
   padding: 12px;
   border-radius: 4px;
+  max-width: min(700px, 90vw);
 }
 
-.exhibit-container ul {
-  margin: auto;
+.exhibit-information {
+  display: none;
 }
 
-.exhibit--information-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.visible {
+  display: inline;
 }
 

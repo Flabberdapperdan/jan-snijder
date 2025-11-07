@@ -21,6 +21,7 @@
   --accent: #ffb22c;
 
   --white: #fffffe;
+  --off-white: #fffef9;
   --black: #131313;
 }
 
@@ -44,27 +45,31 @@ p {
   margin: auto;
 }
 
+p {
+  color: var(--black)
+}
+
 h1 {
-  font-size: 6em;
+  font-size: 6rem;
   color: var(--black);
 }
 h2 {
-  font-size: 3em;
+  font-size: 3rem;
   color: var(--primary);
 }
 h3 {
-  font-size: 2em;
+  font-size: 2rem;
   color: var(--primary);
 }
 h4 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: var(--primary);
 }
 h5 {
-  font-size: 1.2em;
-  color: var(--primary);
+  font-size: 1.2rem;
+  color: var(--secondary);
 }
 h6 {
-  font-size: 1em;
+  font-size: .8rem;
   color: var(--secondary);
 }

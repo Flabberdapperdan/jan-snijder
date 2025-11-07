@@ -13,5 +13,9 @@ export class ExhibitComponent {
   @Input() location: string = '';
   @Input() description: string = '';
 
-  constructor() {}
+  showInformation: boolean = false;
+
+  onClick(): void {
+    this.showInformation = !this.showInformation;
+  }
 }
