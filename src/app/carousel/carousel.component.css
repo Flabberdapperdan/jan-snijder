@@ -1,80 +1,45 @@
-.carousel-wrapper {
+#paintings-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  max-height: 100%;
+  gap: 1rem;
+
+  padding: 0 max(30px, 15%);
 }
 
-.carousel-container {
-  position: relative;
-  width: min(100%, 800px);
-  overflow: hidden;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-item {
-  min-width: 100%;
-  height: auto;
-}
-
-.carousel-image {
-  width: 100%;
-  height: auto;
+img.painting {
+  width: 13rem;
+  height: 13rem;
   object-fit: cover;
+
+  border-radius: 4px;
+  filter: grayscale(90%);
 }
 
-.carousel-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  bottom: 10px;
+.painting:hover {
+  filter: grayscale(0%);
+  cursor: pointer;
+}
+
+.painting-full-screen-container {
+  position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
-  padding: 0 20px;
-}
+  width: calc(100vw - 4rem);
+  height: calc(100vh - 4rem);
+  padding: 2rem;
+  background-color: rgb(from var(--tertiary) r g b / 0.5);
+  display: none;
 
-.carousel-control {
-  background: var(--tertiary);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.carousel-control span {
-  display: inline;
-  vertical-align: text-top;
-}
-
-.carousel-control:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.carousel-indicators {
+.visible {
   display: flex;
-  gap: 10px;
 }
 
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: var(--tertiary);
-  cursor: pointer;
-}
-
-.indicator.active {
-  background-color: var(--accent);
+img.painting-full-screen {
+  opacity: 1;
 }
