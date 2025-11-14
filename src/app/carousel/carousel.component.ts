@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit {
   selectedPainting: PaintingUrl | null = null;
   showSelectedPainting: boolean = false;
 
-  constructor(private service: SanityService) {}
+  constructor(private service: SanityService) { }
 
   ngOnInit(): void {
     this.getPaintings();

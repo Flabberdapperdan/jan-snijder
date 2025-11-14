@@ -19,14 +19,9 @@ export class HomeComponent implements OnInit {
   }
 
   getContent(): void {
-    console.log('Fetching home content...');
     this.service.getContent().then((data) => {
       this.title = data[0].title;
       this.subtitle = data[0].subtitle;
-      console.log('Home content fetched:', data);
-      console.log('Title:', this.title);
-      console.log('Subtitle:', this.subtitle);
-
     }).catch((error) => {
       console.error('Error fetching home content:', error);
     });
