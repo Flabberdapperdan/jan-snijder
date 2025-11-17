@@ -2,6 +2,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 4em;
   padding: 1.5em;
 }
@@ -24,5 +25,16 @@ a > h4 {
   margin: 5px 0;
 }
 
+.mobile {
+  display: none;
+}
 
-
+@media (max-width: 480px) {
+  .desktop {
+    display: none;
+    color: pink;
+  }
+  .mobile {
+    display: block;
+  }
+}

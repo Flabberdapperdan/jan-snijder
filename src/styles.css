@@ -19,10 +19,12 @@
   --secondary: #828282;
   --tertiary: #dddad0;
   --accent: #ffb22c;
-
   --white: #fffffe;
   --off-white: #fffef9;
   --black: #131313;
+
+  /* screens */
+  --mobile: 480px;
 }
 
 /* // GENERAL STYLING \\ */
