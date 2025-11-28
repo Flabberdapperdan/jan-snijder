@@ -6,7 +6,7 @@ import imageUrlBuilder from '@sanity/image-url';
 @Injectable({
   providedIn: 'root',
 })
-export class SanityService {
+export class CarouselService {
   constructor() {}
 
   private Paintings_Query = `

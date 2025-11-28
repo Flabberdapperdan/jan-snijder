@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core'
-import { Home } from '../home.types'
-import { client } from '../../../../sanity/client'
+import { Injectable } from '@angular/core';
+import { Home } from '../home.types';
+import { client } from '../../../../sanity/client';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +11,11 @@ export class HomeService {
       _id,
       title,
       subtitle,
+      image,
       }
-  `
+  `;
 
   async getContent(): Promise<Home[]> {
-    return await client.fetch<Home[]>(this.HOME_CONTENT, {}, {}) // Do we need options here?
+    return await client.fetch<Home[]>(this.HOME_CONTENT, {}, {});
   }
 }

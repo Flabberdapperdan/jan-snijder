@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { SanityService } from './service/carousel.service';
+import { CarouselService } from './service/carousel.service';
 import { Painting, PaintingUrl } from './carousel.types';
 
 @Component({
@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit {
   selectedPainting: PaintingUrl | null = null;
   showSelectedPainting: boolean = false;
 
-  constructor(private service: SanityService) { }
+  constructor(private service: CarouselService) { }
 
   ngOnInit(): void {
     this.getPaintings();

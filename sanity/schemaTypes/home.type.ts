@@ -13,5 +13,9 @@ export const homeType = defineType({
       name: 'subtitle',
       type: 'string',
     }),
+    defineField({
+      name: 'image',
+      type: 'image',
+    }),
   ],
 })
