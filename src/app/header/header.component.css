@@ -1,14 +1,13 @@
-.header-wrapper {
-  position: static;
-}
-
 header {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   gap: 4em;
   padding: 1.5em;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -36,7 +35,6 @@ a > h4 {
     top: 0;
     min-height: 1rem;
     margin-bottom: 0.8rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
   a.active-route:after {
