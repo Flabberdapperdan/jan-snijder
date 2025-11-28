@@ -1,4 +1,4 @@
-<li
+<div
   class="exhibit"
   (click)="onClick()"
   (mouseenter)="onHover()"
@@ -14,7 +14,7 @@
     class="exhibit-information"
     [class.visible]="showInformation || hoverInformation"
   >
-    <h4 class="exhibit-year-location">{{ year }}, {{ location }}</h4>
+    <h5 class="exhibit-year-location">{{ year }}, {{ location }}</h5>
     <p class="exhibit-description">{{ description }}</p>
   </div>
-</li>
+</div>
