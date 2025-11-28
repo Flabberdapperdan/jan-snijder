@@ -13,17 +13,23 @@ h3 {
   z-index: 2;
   background: var(--background, white);
 }
-h3:after, h3:before {
+h3:after,
+h3:before {
   display: block;
   content: '';
   border-bottom: 2px var(--primary) solid;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
-h3.visible:after, h3.visible:before {
+h3.visible:after,
+h3.visible:before {
   transform: scaleX(1);
 }
 
+h3.active:after,
+h3.active:before {
+  border-color: var(--accent);
+}
 
 .exhibit-information {
   position: relative;
