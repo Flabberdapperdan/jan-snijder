@@ -1,7 +1,20 @@
-<div class="exhibit" (click)="onClick()">
-  <h3 class="exhibit-title">{{ name }}</h3>
-  <div class="exhibit-information" [class.visible]="showInformation">
+<li
+  class="exhibit"
+  (click)="onClick()"
+  (mouseenter)="onHover()"
+  (mouseleave)="onLeave()"
+>
+  <h3
+    class="exhibit-title"
+    [class.visible]="showInformation || hoverInformation"
+  >
+    {{ name }}
+  </h3>
+  <div
+    class="exhibit-information"
+    [class.visible]="showInformation || hoverInformation"
+  >
     <h4 class="exhibit-year-location">{{ year }}, {{ location }}</h4>
     <p class="exhibit-description">{{ description }}</p>
   </div>
-</div>
+</li>

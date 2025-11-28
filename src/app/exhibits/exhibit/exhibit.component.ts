@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 
 @Component({
   selector: 'app-exhibit',
@@ -13,9 +13,21 @@ export class ExhibitComponent {
   @Input() location: string = '';
   @Input() description: string = '';
 
-  showInformation: boolean = false;
+  @Input() index: number | null = null;
+  @Input() showInformation: boolean = false;
+  panelClicked = output<any>();
+
+  hoverInformation: boolean = false;
 
   onClick(): void {
-    this.showInformation = !this.showInformation;
+    this.showInformation ? this.panelClicked.emit(null) : this.panelClicked.emit(this.index) ;
+  }
+
+  onHover(): void {
+    this.hoverInformation = true;
+  }
+
+  onLeave(): void {
+    this.hoverInformation = false;
   }
 }

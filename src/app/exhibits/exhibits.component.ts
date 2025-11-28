@@ -12,6 +12,7 @@ import { Exhibit } from './exhibits.types';
 })
 export class ExhibitsComponent implements OnInit {
   exhibits: Exhibit[] = [];
+  currentIndex: number | null = null;
 
   constructor(private service: ExhibitsService) {}
 
@@ -20,5 +21,8 @@ export class ExhibitsComponent implements OnInit {
       this.exhibits = data;
     });
   }
-}
 
+  changeCurrentIndex(index: number): void {
+    this.currentIndex = index;
+  }
+}

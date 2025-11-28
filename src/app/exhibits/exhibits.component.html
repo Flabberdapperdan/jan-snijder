@@ -1,12 +1,15 @@
 
-  <div class="exhibits-container">
+  <ul class="exhibits-container">
     @for (exhibit of exhibits; track $index) {
       <app-exhibit
         [name]="exhibit.name"
         [year]="exhibit.year"
         [location]="exhibit.location"
         [description]="exhibit.description"
+        [index]="$index"
+        [showInformation]="$index === currentIndex"
+        (panelClicked)="changeCurrentIndex($event)"
       ></app-exhibit>
     }
-  </div>
+  </ul>
 

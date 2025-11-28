@@ -1,22 +1,58 @@
 .exhibit {
-  border: 1px solid var(--primary);
-  background: var(--off-white);
-  padding: 12px;
-  border-radius: 4px;
+  position: relative;
   max-width: min(600px, 90vw);
+  overflow: visible;
 }
 
 .exhibit:hover {
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: var(--tertiary);
 }
+
+h3 {
+  position: relative;
+  z-index: 2;
+  background: var(--background, white);
+}
+h3:after, h3:before {
+  display: block;
+  content: '';
+  border-bottom: 2px var(--primary) solid;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+h3.visible:after, h3.visible:before {
+  transform: scaleX(1);
+}
+
 
 .exhibit-information {
-  display: none;
+  position: relative;
+  left: auto;
+  right: auto;
+
+  max-height: 0;
+  overflow: hidden;
+
+  transform: translateY(-30px);
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    max-height 350ms ease,
+    transform 300ms ease,
+    opacity 300ms ease,
+    visibility 0s linear 300ms;
+  z-index: 1;
 }
 
-.visible {
-  display: inline;
+.exhibit-information.visible {
+  max-height: 600px;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    max-height 400ms ease,
+    transform 300ms ease,
+    opacity 300ms ease,
+    visibility 0s linear 0s;
 }
-
