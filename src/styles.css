@@ -75,6 +75,11 @@ h6 {
   font-size: 0.8rem;
   color: var(--secondary);
 }
+@media (max-width: 520px) {
+  p {
+    font-size: .8rem;
+  }
+}
 
 /* // MOBILE STYLES \\ */
 .mobile {

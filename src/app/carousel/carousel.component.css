@@ -51,6 +51,11 @@ img.painting-full-screen {
   opacity: 1;
 }
 
+.painting-full-screen-wrapper p {
+  color: var(--secondary);
+  
+}
+
 @media (max-width: 768px) {
   img.painting {
     width: 10rem;
