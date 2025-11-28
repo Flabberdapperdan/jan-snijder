@@ -48,7 +48,7 @@ p {
 }
 
 p {
-  color: var(--black)
+  color: var(--black);
 }
 
 h1 {
@@ -72,6 +72,20 @@ h5 {
   color: var(--secondary);
 }
 h6 {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: var(--secondary);
+}
+
+/* // MOBILE STYLES \\ */
+.mobile {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
 }

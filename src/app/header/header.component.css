@@ -1,3 +1,7 @@
+.header-wrapper {
+  position: static;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -10,31 +14,37 @@ header {
 a {
   text-decoration: none;
   color: var(--primary);
-
 }
 a:after {
-  display:block;
+  display: block;
   content: '';
   border-bottom: 2px var(--accent) solid;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
-a.active-route:after { transform: scaleX(1); }
+a.active-route:after {
+  transform: scaleX(1);
+}
 
 a > h4 {
   margin: 5px 0;
 }
 
-.mobile {
-  display: none;
-}
-
-@media (max-width: 480px) {
-  .desktop {
-    display: none;
-    color: pink;
+@media (max-width: 520px) {
+  header {
+    position: sticky;
+    top: 0;
+    min-height: 1rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
-  .mobile {
-    display: block;
+
+  a.active-route:after {
+    transform: scaleX(0);
+  }
+
+  a.active-route,
+  a.active-route i {
+    color: var(--accent);
   }
 }
