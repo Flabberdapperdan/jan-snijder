@@ -71,3 +71,9 @@ h3.active:before {
     opacity 300ms ease,
     visibility 0s linear 0s;
 }
+
+@media (max-width: 520px) {
+  h3:after {
+    transform: scaleX(0.011) scaleY(2);
+  }
+}

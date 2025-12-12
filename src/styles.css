@@ -88,6 +88,36 @@ h6 {
 }
 
 @media (max-width: 520px) {
+  h1 {
+    font-size: 4rem;
+    color: var(--black);
+  }
+  h2 {
+    font-size: 2rem;
+    color: var(--primary);
+  }
+  h3 {
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  h4 {
+    font-size: 1.6rem;
+    color: var(--primary);
+  }
+  h5 {
+    font-size: 1.1rem;
+    color: var(--secondary);
+  }
+  h6 {
+    font-size: 0.7rem;
+    color: var(--secondary);
+  }
+  @media (max-width: 520px) {
+    p {
+      font-size: 0.7rem;
+    }
+  }
+
   .desktop {
     display: none;
   }
