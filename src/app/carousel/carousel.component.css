@@ -49,11 +49,12 @@ img.painting {
 img.painting-full-screen {
   max-width: calc(100vw - 5rem);
   opacity: 1;
+  max-width: 80vw;
+  max-height: 65vh;
 }
 
 .painting-full-screen-wrapper p {
   color: var(--secondary);
-  
 }
 
 @media (max-width: 768px) {
