@@ -4,6 +4,11 @@
   overflow: visible;
 }
 
+/* .exhibit::after {
+  content: '.';
+  transform-origin: 15%;
+} */
+
 .exhibit:hover {
   cursor: pointer;
 }
@@ -20,6 +25,10 @@ h3:before {
   border-bottom: 2px var(--primary) solid;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
+}
+h3:after {
+  transform: scaleX(0.006) scaleY(2);
+  transform-origin: 15%;
 }
 h3.visible:after,
 h3.visible:before {
