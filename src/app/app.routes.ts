@@ -4,7 +4,5 @@ import { ExhibitsComponent } from './exhibits/exhibits.component';
 import { CarouselComponent } from './carousel/carousel.component';
 
 export const routes: Routes = [
-  { path: '', title: 'Home', component: HomeComponent },
-  { path: 'exposities', title: 'Exposities', component: ExhibitsComponent },
-  { path: 'werken', title: 'Werken', component: CarouselComponent },
+  { path: '', title: 'Home', component: HomeComponent }
 ];

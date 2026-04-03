@@ -1,7 +1,7 @@
-import { Component, Input, output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-exhibit',
+  selector: 'app-exhibit', 
   standalone: true,
   imports: [],
   templateUrl: './exhibit.component.html',
@@ -15,7 +15,7 @@ export class ExhibitComponent {
 
   @Input() index: number | null = null;
   @Input() showInformation: boolean = false;
-  panelClicked = output<any>();
+  @Output() panelClicked = new EventEmitter<number | null>();
 
   hoverInformation: boolean = false;
 
