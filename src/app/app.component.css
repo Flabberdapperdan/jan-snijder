@@ -1,21 +1,10 @@
-#body-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  justify-items: start;
-  height: 100vh;
-}
-
-.main-wrapper {
-  width: 100vw;
+main.main-wrapper {
+  width: calc(100%);
 
   content: '';
 
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#body-spacer {
-  flex: 1 1 auto;
+  gap: 2em
 }

@@ -22,7 +22,9 @@ export class ExhibitsComponent implements OnInit {
     });
   }
 
-  changeCurrentIndex(index: number): void {
-    this.currentIndex = index;
+  changeCurrentIndex(index: number | null): void {
+    if (index) {
+      this.currentIndex = index;
+    }
   }
 }
