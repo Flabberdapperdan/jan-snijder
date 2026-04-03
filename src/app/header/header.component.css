@@ -1,13 +1,11 @@
 .header {
-  display: block;
+  container-type: scroll-state;
   position: sticky;
   top: 0;
   z-index: 5;
 
   padding: 1em 0;
   margin-bottom: 1.3rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background: var(--white);
 }
 
 nav.navbar {
@@ -17,26 +15,36 @@ nav.navbar {
   align-items: center;
   gap: 4em;
 
+  background: var(--white);
+  padding: 0.5em 0;
+
+
+  transition: background 0.5 ease-in;
+
+  @container scroll-state(stuck: top) {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
   scroll-target-group: auto;
-}
 
-a {
-  text-decoration: none;
-  color: var(--primary);
-}
-a:after {
-  display: block;
-  content: '';
-  border-bottom: 2px var(--accent) solid;
-  transform: scaleX(0);
-  transition: transform 250ms ease-in-out;
-}
-a:target-current:after {
-  transform: scaleX(1);
-}
+  a {
+    text-decoration: none;
+    color: var(--primary);
+  }
+  a:after {
+    display: block;
+    content: '';
+    border-bottom: 2px var(--accent) solid;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+  a:target-current:after {
+    transform: scaleX(1);
+  }
 
-a > h4 {
-  margin: 5px 0;
+  a > h4 {
+    margin: 5px 0;
+  }
 }
 
 @media (max-width: 520px) {
