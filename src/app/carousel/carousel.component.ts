@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit {
   selectedPainting: PaintingUrl | null = null;
   showSelectedPainting: boolean = false;
 
-  constructor(private service: CarouselService) { }
+  constructor(private service: CarouselService) {}
 
   ngOnInit(): void {
     this.getPaintings();
@@ -43,5 +43,13 @@ export class CarouselComponent implements OnInit {
 
   onClickClose(): void {
     this.showSelectedPainting = false;
+  }
+
+  groupPaintingsByThree(): PaintingUrl[][] {
+    const grouped: PaintingUrl[][] = [];
+    for (let i = 0; i < this.paintings.length; i += 3) {
+      grouped.push(this.paintings.slice(i, i + 3));
+    }
+    return grouped;
   }
 }

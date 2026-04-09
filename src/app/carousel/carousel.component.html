@@ -1,27 +1,38 @@
 <article id="werk" class="flex-column-wrapper">
   <h2 class="link-heading">Werk</h2>
-  <div id="paintings-container">
-    @for (painting of paintings; track $index) {
-      <img
-        class="painting"
-        [src]="painting.url"
-        [alt]="painting.title"
-        (click)="onClickPainting($index)"
-      />
-    }
-    <div
-      class="painting-full-screen-container"
-      [class.visible]="showSelectedPainting"
-      (click)="onClickClose()"
-    >
-      <div class="painting-full-screen-wrapper">
-        <img
-          class="painting-full-screen"
-          [src]="selectedPainting?.url"
-          [alt]="`${selectedPainting?.title}--full-screen`"
-        />
-        <p>{{ selectedPainting?.title }}</p>
+
+  <div class="carousel">
+    @for (group of groupPaintingsByThree(); track $index) {
+      <div id="`group-${$index}`" class="painting-container">
+        @for (painting of group; track $index) {
+          <img
+            class="painting"
+            [src]="painting.url"
+            [alt]="painting.title"
+            (click)="onClickPainting($index)"
+          />
+        }
       </div>
+    }
+    <div class="pagination">
+      @for (group of groupPaintingsByThree(); track $index) {
+        <a [href]="`#group-${$index}`"></a>
+      }
+    </div>
+  </div>
+
+  <div
+    class="painting-full-screen-container"
+    [class.visible]="showSelectedPainting"
+    (click)="onClickClose()"
+  >
+    <div class="painting-full-screen-wrapper">
+      <img
+        class="painting-full-screen"
+        [src]="selectedPainting?.url"
+        [alt]="`${selectedPainting?.title}--full-screen`"
+      />
+      <p>{{ selectedPainting?.title }}</p>
     </div>
   </div>
 </article>

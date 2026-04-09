@@ -36,6 +36,7 @@ app-root {
 
 html {
   display: block;
+  scroll-behavior: smooth;
 }
 
 body {

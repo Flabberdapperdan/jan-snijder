@@ -1,10 +1,60 @@
 #paintings-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+}
 
-  padding: 0 max(30px, 15%);
+.carousel {
+  width: 90vw;
+  height: 300px;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  animation-timeline: view(x);
+
+  scroll-marker-group: after;
+  anchor-name: --carousel;
+}
+
+.carousel::scroll-marker-group {
+  position: absolute;
+  top: calc(anchor(bottom) - 70px);
+  justify-self: anchor-center;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  scroll-snap-align: start;
+  position-anchor: --carousel;
+}
+
+.painting-container {
+  padding: 20px;
+
+  flex: 0 0 70%;
+  scroll-snap-align: center;
+
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.painting-container::scroll-marker {
+  content: attr(data-accName);
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  overflow: hidden;
+  text-indent: 12px;
+}
+
+.painting-container::scroll-marker:target-current {
+  background-color: var(--primary);
 }
 
 img.painting {
@@ -14,6 +64,27 @@ img.painting {
 
   border-radius: 4px;
   filter: grayscale(90%);
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation: fancy-in linear both;
+      animation-timeline: view(x);
+    }
+  }
+}
+@keyframes fancy-in {
+  0% {
+    transform: translateX(25vw);
+  }
+  20%,
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    transform: translateX(90%) scale(0.8);
+    opacity: 0;
+  }
 }
 
 .painting:hover {
@@ -57,6 +128,7 @@ img.painting-full-screen {
   color: var(--secondary);
 }
 
+/* mobile styles */
 @media (max-width: 768px) {
   img.painting {
     width: 10rem;
