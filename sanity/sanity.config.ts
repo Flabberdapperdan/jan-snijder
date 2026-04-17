@@ -1,7 +1,7 @@
 import {defineConfig} from 'sanity'
 import {StructureBuilder, structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import {schemaTypes} from './schema-types'
 import {BookIcon} from '@sanity/icons'
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
