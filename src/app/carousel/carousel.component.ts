@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CarouselService } from './service/carousel.service';
 import { Painting, PaintingUrl } from './carousel.types';
 
@@ -14,6 +14,7 @@ import { Painting, PaintingUrl } from './carousel.types';
 export class CarouselComponent implements OnInit {
   @Input() autoPlay: boolean = false;
   @Input() interval: number = 5000;
+  @ViewChild('carouselContainer') carouselContainer!: ElementRef;
 
   paintings: PaintingUrl[] = [];
   selectedPainting: PaintingUrl | null = null;
@@ -44,6 +45,23 @@ export class CarouselComponent implements OnInit {
   onClickClose(): void {
     this.showSelectedPainting = false;
   }
+
+  onClickPrevious(): void {
+    console.log('clicking previous');
+    this.carouselContainer.nativeElement.scrollBy({
+      left: -300,
+      behavior: 'smooth',
+    });
+  }
+  
+  onClickNext(): void {
+    console.log('clicking next');
+    this.carouselContainer.nativeElement.scrollBy({
+      left: 300,
+      behavior: 'smooth',
+    });
+  }
+
 
   groupPaintingsByThree(): PaintingUrl[][] {
     const grouped: PaintingUrl[][] = [];

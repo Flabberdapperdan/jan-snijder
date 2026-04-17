@@ -1,12 +1,46 @@
 #paintings-container {
 }
 
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1em;
+
+
+  button {
+    width: 3em;
+    height: 3em;
+    box-shadow: 0 0 0 1px var(--white);
+    padding: 0.5em;
+    border-radius: 50%;
+    border: none;
+    aspect-ratio: 1 / 1;
+    pointer-events: auto;
+    cursor: pointer;
+    transition:
+      box-shadow 145ms 1s,
+      outline-offset 145ms 1s;
+  }
+
+  button svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .carousel {
-  width: 90vw;
-  height: 300px;
+  --carousel-height: 300px;
+  --carousel-width: 80vw;
+
+  width: var(--carousel-width);
+  height: var(--carousel-height);
   padding: 20px;
   display: flex;
   gap: 4vw;
+  position: relative;
+  contain: layout;
 
   overflow-x: scroll;
   scrollbar-width: none;
@@ -33,6 +67,7 @@
 
 .painting-container {
   padding: 20px;
+  min-width: var(--carousel-width);
 
   flex: 0 0 70%;
   scroll-snap-align: center;
@@ -46,15 +81,21 @@
   content: attr(data-accName);
   width: 12px;
   height: 12px;
-  background-color: transparent;
-  border: 2px solid var(--primary);
+  background-color: var(--tertiary);
   border-radius: 50%;
   overflow: hidden;
   text-indent: 12px;
+  transition: transform 0.3s ease;
 }
-
 .painting-container::scroll-marker:target-current {
   background-color: var(--primary);
+  width: 12px;
+  height: 12px;
+  transform: scale(1.2);
+}
+.painting-container::scroll-marker:hover {
+  outline: 1px dashed var(--accent);
+  outline-offset: 2px;
 }
 
 img.painting {
