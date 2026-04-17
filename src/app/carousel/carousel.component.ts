@@ -53,7 +53,7 @@ export class CarouselComponent implements OnInit {
   onClickPrevious(): void {
     console.log('clicking previous');
     this.carouselContainer.nativeElement.scrollBy({
-      left: -300,
+      left: -600,
       behavior: 'smooth',
     });
   }
@@ -61,7 +61,7 @@ export class CarouselComponent implements OnInit {
   onClickNext(): void {
     console.log('clicking next');
     this.carouselContainer.nativeElement.scrollBy({
-      left: 300,
+      left: 600,
       behavior: 'smooth',
     });
   }

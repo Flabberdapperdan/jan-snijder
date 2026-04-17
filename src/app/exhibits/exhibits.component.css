@@ -10,6 +10,6 @@
 }
 @media (max-width: 520px) {
   .exhibits-container {
-    padding: 0 20px;
+    padding: 0;
   }
 }

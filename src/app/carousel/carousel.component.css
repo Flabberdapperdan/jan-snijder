@@ -1,12 +1,10 @@
-#paintings-container {
-}
-
 .carousel-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   padding: 0 1em;
+  max-width: 100vw;
 
   button {
     width: 3em;
@@ -14,6 +12,7 @@
     box-shadow: 0 0 0 1px var(--white);
     padding: 0.5em;
     border-radius: 50%;
+    margin-bottom: 5%;
     border: none;
     aspect-ratio: 1 / 1;
     pointer-events: auto;
@@ -209,5 +208,33 @@ img.painting-full-screen {
 @media (max-width: 520px) {
   #paintings-container {
     padding: 0 max(20px, 10%);
+  }
+
+  .carousel-wrapper {
+    padding: 0;
+  }
+
+  .carousel {
+    width: 100vw;
+    height: auto;
+    padding: 0;
+    position: none;
+    contain: none;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+
+    img.painting {
+      animation: none;
+    }
+  }
+
+  .carousel::scroll-marker-group {
+    display: none;
+  }
+
+  .carousel-wrapper {
+    button {
+      display: none;
+    }
   }
 }

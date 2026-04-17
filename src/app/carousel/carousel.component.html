@@ -7,24 +7,41 @@
         <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
       </svg>
     </button>
-    <div class="carousel" #carouselContainer>
-      @for (group of groupedPaintings; track $index) {
-        <div
-          id="`section-${$index}`"
-          [style.view-timeline]="`--section-${$index + 1} x`"
-          class="painting-container"
-        >
-          @for (painting of group; track $index) {
-            <img
-              class="painting"
-              [src]="painting.url"
-              [alt]="painting.title"
-              (click)="onClickPainting($index)"
-            />
-          }
-        </div>
-      }
+
+    <div class="desktop">
+      <div class="carousel" #carouselContainer>
+        @for (group of groupedPaintings; track $index) {
+          <div
+            id="`section-${$index}`"
+            [style.view-timeline]="`--section-${$index + 1} x`"
+            class="painting-container"
+          >
+            @for (painting of group; track $index) {
+              <img
+                class="painting"
+                [src]="painting.url"
+                [alt]="painting.title"
+                (click)="onClickPainting($index)"
+              />
+            }
+          </div>
+        }
+      </div>
     </div>
+
+    <div class="mobile">
+      <div class="carousel">
+        @for (painting of paintings; track $index) {
+          <img
+            class="painting"
+            [src]="painting.url"
+            [alt]="painting.title"
+            (click)="onClickPainting($index)"
+          />
+        }
+      </div>
+    </div>
+
     <button
       class="next"
       (click)="onClickNext()"
