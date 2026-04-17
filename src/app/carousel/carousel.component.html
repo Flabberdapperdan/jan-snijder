@@ -1,15 +1,19 @@
 <article id="werk" class="flex-column-wrapper">
   <h2 class="link-heading">Werk</h2>
 
-  <div class="carousel-wrapper">
+  <div class="carousel-wrapper" [style.timeline-scope]="timelines">
     <button class="previous" (click)="onClickPrevious()">
       <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
       </svg>
     </button>
     <div class="carousel" #carouselContainer>
-      @for (group of groupPaintingsByThree(); track $index) {
-        <div id="`group-${$index}`" class="painting-container">
+      @for (group of groupedPaintings; track $index) {
+        <div
+          id="`section-${$index}`"
+          [style.view-timeline]="`--section-${$index + 1} x`"
+          class="painting-container"
+        >
           @for (painting of group; track $index) {
             <img
               class="painting"
@@ -21,7 +25,11 @@
         </div>
       }
     </div>
-    <button class="next" (click)="onClickNext()">
+    <button
+      class="next"
+      (click)="onClickNext()"
+      [style.animation-timeline]="`--section-${maxIndex}`"
+    >
       <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
       </svg>

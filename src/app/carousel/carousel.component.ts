@@ -17,8 +17,11 @@ export class CarouselComponent implements OnInit {
   @ViewChild('carouselContainer') carouselContainer!: ElementRef;
 
   paintings: PaintingUrl[] = [];
+  groupedPaintings: PaintingUrl[][] = [];
   selectedPainting: PaintingUrl | null = null;
   showSelectedPainting: boolean = false;
+  timelines: string = '';
+  maxIndex: number = 0;
 
   constructor(private service: CarouselService) {}
 
@@ -34,6 +37,7 @@ export class CarouselComponent implements OnInit {
           title: item.title,
         });
       });
+      this.groupPaintingsByThree();
     });
   }
 
@@ -53,7 +57,7 @@ export class CarouselComponent implements OnInit {
       behavior: 'smooth',
     });
   }
-  
+
   onClickNext(): void {
     console.log('clicking next');
     this.carouselContainer.nativeElement.scrollBy({
@@ -62,12 +66,16 @@ export class CarouselComponent implements OnInit {
     });
   }
 
-
-  groupPaintingsByThree(): PaintingUrl[][] {
-    const grouped: PaintingUrl[][] = [];
+  groupPaintingsByThree(): void {
+    this.groupedPaintings = [];
+    this.timelines = '';
     for (let i = 0; i < this.paintings.length; i += 3) {
-      grouped.push(this.paintings.slice(i, i + 3));
+      if (i !== 0) {
+        this.timelines += `, `;
+      }
+      this.groupedPaintings.push(this.paintings.slice(i, i + 3));
+      this.timelines += `--section-${this.groupedPaintings.length}`;
+      this.maxIndex = this.groupedPaintings.length;
     }
-    return grouped;
   }
 }

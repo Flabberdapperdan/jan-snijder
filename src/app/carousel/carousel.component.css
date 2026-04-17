@@ -28,6 +28,22 @@
     width: 100%;
     height: 100%;
   }
+
+  button {
+    @supports (animation-timeline: scroll()) {
+      animation: toggle-control linear both;
+    }
+
+    &.previous {
+      animation-timeline: --section-1;
+    }
+  }
+}
+
+@keyframes toggle-control {
+  50% {
+    opacity: 0;
+  }
 }
 
 .carousel {
