@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ExhibitsComponent } from './exhibits/exhibits.component';
 import { HomeComponent } from './home/home.component';
+import { NewsComponent } from './news/news.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     CarouselComponent,
     ExhibitsComponent,
-    HomeComponent
+    HomeComponent,
+    NewsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

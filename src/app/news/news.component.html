@@ -1,0 +1,9 @@
+<div class="news">
+  @for (newsItem of newsItems; track $index) {
+    <div class="news-item">
+      <h3>{{ newsItem.title }}</h3>
+      <p>{{ newsItem.text }}</p>
+      <a [href]="newsItem.link" target="_blank">Read more</a>
+    </div>
+  }
+</div>
