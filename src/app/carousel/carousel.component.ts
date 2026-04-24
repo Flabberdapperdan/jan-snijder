@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CarouselService } from './service/carousel.service';
 import { Painting, PaintingUrl } from './carousel.types';
@@ -6,7 +5,7 @@ import { Painting, PaintingUrl } from './carousel.types';
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   providers: [],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css',

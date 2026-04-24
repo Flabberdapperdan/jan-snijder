@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -11,13 +11,12 @@ import { NewsComponent } from './news/news.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
     ExhibitsComponent,
     HomeComponent,
-    NewsComponent
+    NewsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
