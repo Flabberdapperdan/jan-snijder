@@ -41,8 +41,8 @@ export class CarouselComponent implements OnInit {
     });
   }
 
-  onClickPainting(index: number): void {
-    this.selectedPainting = this.paintings[index];
+  onClickPainting(painting: PaintingUrl): void {
+    this.selectedPainting = painting;
     this.showSelectedPainting = true;
   }
 

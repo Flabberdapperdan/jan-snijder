@@ -21,7 +21,7 @@
                 class="painting"
                 [src]="painting.url"
                 [alt]="painting.title"
-                (click)="onClickPainting($index)"
+                (click)="onClickPainting(painting)"
               />
             }
           </div>
@@ -36,7 +36,7 @@
             class="painting"
             [src]="painting.url"
             [alt]="painting.title"
-            (click)="onClickPainting($index)"
+            (click)="onClickPainting(painting)"
           />
         }
       </div>
