@@ -1,6 +1,11 @@
 <article id="home">
-    <h1>Jan Snijder</h1>
+  <h1>Jan Snijder</h1>
+  @if (loading) {
+    <div class="img-loader"></div>
+  }
+  @else if (!loading) {
     <img [src]="coverImageUrl" alt="Cover Image" class="cover-image" />
-    <h2>{{ title }}</h2>
-    <h3>{{ subtitle }}</h3>
+  }
+  <h2>{{ title }}</h2>
+  <h3>{{ subtitle }}</h3>
 </article>

@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   title: string = '';
   subtitle: string = '';
   coverImageUrl: string = '';
+  loading: boolean = false;
 
   constructor(
     private homeService: HomeService,
@@ -24,12 +25,14 @@ export class HomeComponent implements OnInit {
   }
 
   getContent(): void {
+    this.loading = true;
     this.homeService
       .getContent()
       .then((data) => {
         this.title = data[0].title;
         this.subtitle = data[0].subtitle;
         this.coverImageUrl = this.carouselService.urlFor(data[0].image).url();
+        this.loading = false;
       })
       .catch((error) => {
         console.error('Error fetching home content:', error);
