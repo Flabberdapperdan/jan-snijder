@@ -1,9 +1,8 @@
 .header {
   container-type: scroll-state;
   position: sticky;
-  top: 0;
+  top: 10px;
   z-index: 5;
-  margin-top: 1.3rem;
 }
 
 nav.navbar {
@@ -16,11 +15,17 @@ nav.navbar {
   background: var(--white);
   padding: 0.5em 0;
 
-
-  transition: background 0.5 ease-in;
+  transition:
+    box-shadow 0.3s ease,
+    box-shadow 0.3s ease,
+    margin 0.3s ease-in-out,
+    border-radius 0.3s ease;
 
   @container scroll-state(stuck: top) {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-5);
+    border-radius: 10px;
+    margin-inline: 20px;
   }
 
   scroll-target-group: auto;
@@ -46,11 +51,10 @@ nav.navbar {
 }
 
 @media (max-width: 520px) {
-  header {
+  .header {
     position: sticky;
     top: 0;
     min-height: 1rem;
-    margin-bottom: 0.8rem;
   }
 
   a.active-route:after {

@@ -94,22 +94,26 @@ h6 {
 }
 
 /* // BUTTONS \\ */
-button, .button {
+button,
+.button {
   --button-height: 2.5em;
 
   display: inline-block;
   padding: 0.5em 1em;
   border: 1px solid var(--primary);
-  border-radius: calc(.5 * var(--button-height));
+  border-radius: calc(0.5 * var(--button-height));
   background-color: transparent;
   color: var(--primary);
   font-size: 1rem;
   width: fit-content;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-button:hover, .button:hover {
+button:hover,
+.button:hover {
   background-color: var(--primary);
   color: var(--accent);
 }
@@ -170,5 +174,7 @@ button:hover, .button:hover {
 article {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1em;
 }

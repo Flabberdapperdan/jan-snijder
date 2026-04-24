@@ -1,10 +1,14 @@
+#exposities {
+width: 100%;
+}
+
 .exhibits-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.3rem;
 
-  width: 100%;
+  width: 60vw;
 
   padding: 0 max(30px, 15%);
 }
