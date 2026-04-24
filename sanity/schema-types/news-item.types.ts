@@ -30,5 +30,10 @@ export const newsItemType = defineType({
       type: 'url',
       validation: (Rule) => Rule.uri({scheme: ['https']}),
     },
+    {
+      name: 'linkText',
+      title: 'Link Text',
+      type: 'string',
+    }
   ],
 })

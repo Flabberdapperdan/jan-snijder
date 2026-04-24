@@ -4,4 +4,5 @@ export type NewsItem = {
   text: string;
   image: string;
   link: string;
+  linkText: string;
 }

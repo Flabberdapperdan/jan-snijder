@@ -13,7 +13,8 @@ export class NewsService {
       title,
       text,
       image,
-      link
+      link,
+      linkText
     }
   `;
 
@@ -25,6 +26,7 @@ export class NewsService {
         text: string;
         image: any;
         link: string;
+        linkText: string;
       }[]
     >(this.NewsItems_Query, {}, {});
 
@@ -34,6 +36,7 @@ export class NewsService {
       text: item.text,
       image: item.image ? this.urlFor(item.image).url() : '',
       link: item.link,
+      linkText: item.linkText,
     }));
   }
 

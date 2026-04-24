@@ -1,9 +1,34 @@
-<div class="news">
-  @for (newsItem of newsItems; track $index) {
-    <div class="news-item">
-      <h3>{{ newsItem.title }}</h3>
-      <p>{{ newsItem.text }}</p>
-      <a [href]="newsItem.link" target="_blank">Read more</a>
-    </div>
-  }
+<div id="news">
+  <div class="title-container">
+    <h2>Nieuws</h2>
+  </div>
+  <section class="news-items">
+    @for (newsItem of newsItems; track $index) {
+      <div
+        class="news-item inactive"
+        [class.active]="activeIndex === $index"
+        (click)="userToggleActive($index)"
+      >
+        <div class="news-item-content">
+          <h3>{{ newsItem.title }}</h3>
+          <div class="news-item-body">
+            <div class="news-item-body-content">
+              <p>{{ newsItem.text }}</p>
+
+              @if (newsItem.link) {
+                <a class="button" [href]="newsItem.link" target="_blank">{{
+                  newsItem.linkText ? newsItem.linkText : 'Lees meer'
+                }}</a>
+              }
+            </div>
+          </div>
+        </div>
+        @if (newsItem.image) {
+          <div class="news-item-image">
+            <img [src]="newsItem.image" alt="{{ newsItem.title }}" />
+          </div>
+        }
+      </div>
+    }
+  </section>
 </div>

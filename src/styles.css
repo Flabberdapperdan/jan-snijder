@@ -88,7 +88,33 @@ h6 {
   }
 }
 
-/* // MOBILE-RELATED STYLES \\ */
+/* // COLOR CLASSES \\ */
+.inverted-color {
+  color: var(--off-white);
+}
+
+/* // BUTTONS \\ */
+button, .button {
+  --button-height: 2.5em;
+
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 1px solid var(--primary);
+  border-radius: calc(.5 * var(--button-height));
+  background-color: transparent;
+  color: var(--primary);
+  font-size: 1rem;
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover, .button:hover {
+  background-color: var(--primary);
+  color: var(--accent);
+}
+
+/* // MOBILE STYLES \\ */
 .mobile {
   display: none;
 }
