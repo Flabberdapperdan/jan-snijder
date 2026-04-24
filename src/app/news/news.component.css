@@ -1,4 +1,4 @@
-#news {
+#nieuws {
   --animation-time: 0.3s;
 
   display: grid;
@@ -14,6 +14,12 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+
+  h2 {
+    margin: .5em auto;
+  }
 }
 
 .news-items {
