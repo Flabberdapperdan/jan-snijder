@@ -19,7 +19,7 @@
   --secondary: #828282;
   --tertiary: #dddad0;
   --accent: #ffb22c;
-  --accent-2: #99BBDB;
+  --accent-2: #99bbdb;
   --white: #fffffe;
   --off-white: #fffef9;
   --black: #131313;
@@ -40,6 +40,7 @@ app-root {
 html {
   display: block;
   scroll-behavior: smooth;
+  overflow-y: auto;
 }
 
 body {
@@ -88,6 +89,34 @@ h6 {
 @media (max-width: 520px) {
   p {
     font-size: 0.7rem;
+  }
+}
+
+hr {
+  content: '';
+  margin: 1em auto;
+  width: 80vw;
+  border-top: 3px solid var(--accent-2);
+}
+
+@supports (animation-timeline: scroll(root block)) {
+  hr {
+    transform-origin: center center;
+    animation-name: hr-grow;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    animation-range: 0% 75%;
+  }
+}
+
+@keyframes hr-grow {
+  from {
+    transform: scaleX(0.1);
+  }
+
+  to {
+    transform: scaleX(1.8);
   }
 }
 
