@@ -5,7 +5,7 @@
   grid-template-columns: 1fr 2fr;
 
   width: 100vw;
-  min-height: 40vh;
+  min-height: 20vh;
   background-color: var(--tertiary);
 }
 
@@ -14,11 +14,11 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   height: 100%;
 
   h2 {
-    margin: .5em auto;
+    margin: 0.5em auto;
   }
 }
 
@@ -62,6 +62,10 @@
 
 .news-item-content {
   width: 50%;
+
+  h3 {
+    margin-bottom: 0.5em;
+  }
 }
 
 .news-item-body {
@@ -102,4 +106,18 @@
     max-width: 100%;
     max-height: 100%;
   }
+}
+
+/* mobile styles */
+@media (max-width: 768px) {
+  #nieuws {
+    grid-template-columns: 1fr;
+  }
+
+  .news-items {
+    padding: 0 1.5em;
+    grid-column: 1 / 2;
+    max-width: 100%;
+  }
+
 }
