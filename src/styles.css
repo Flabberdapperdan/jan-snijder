@@ -211,3 +211,29 @@ article {
   align-items: center;
   gap: 1em;
 }
+
+.title-container {
+  grid-column: 1 / 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+
+  h2 {
+    margin: 0.5em auto;
+  }
+}
+
+.two-column-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 90%;
+  min-width: 90%;
+}
+
+@media (max-width: 768px) {
+  .two-column-section {
+    grid-template-columns: 1fr;
+  }
+}

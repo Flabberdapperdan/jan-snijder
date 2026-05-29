@@ -4,3 +4,10 @@
   align-items: center;
   gap: 2em;
 }
+
+.body-wrapper > app-news,
+.body-wrapper > app-carousel,
+.body-wrapper > app-exhibits,
+.body-wrapper > app-footer {
+  display: contents;
+}
