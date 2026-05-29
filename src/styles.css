@@ -96,6 +96,7 @@ hr {
   content: '';
   margin: 1em auto;
   width: 80vw;
+  max-width: 100vw;
   border-top: 3px solid var(--accent-2);
 }
 
@@ -116,7 +117,7 @@ hr {
   }
 
   to {
-    transform: scaleX(1.8);
+    transform: scaleX(1.2);
   }
 }
 

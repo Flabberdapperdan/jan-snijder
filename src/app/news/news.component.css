@@ -4,9 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
 
-  width: 100vw;
-  min-height: 20vh;
-  /* background-color: var(--tertiary); */
+  width: 90%;
 }
 
 .title-container {
@@ -55,9 +53,19 @@
 
 .news-item {
   position: relative;
-
-  border-bottom: 1px solid black;
   padding: 0.5em;
+}
+
+.news-item::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 80%;
+  height: 1px;
+  background: black;
 }
 
 .news-item-content {
@@ -83,7 +91,9 @@
 }
 
 .news-item:nth-last-of-type(1) {
-  border-bottom: none;
+  &::after {
+    display: none;
+  }
 }
 
 .news-item-image {

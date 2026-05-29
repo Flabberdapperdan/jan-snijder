@@ -17,7 +17,7 @@
   h1 {
     align-self: stretch;
     margin: 0;
-    padding-left: 1rem;
+    padding-left: calc(1rem + max(1rem, (100vw - 800px) * 0.2));
     box-sizing: border-box;
     text-align: left;
 
@@ -34,7 +34,7 @@
   h3 {
     align-self: stretch;
     margin: 0;
-    padding-right: 1rem;
+    padding-right: calc(1rem + max(1rem, (100vw - 800px) * 0.2));
     box-sizing: border-box;
     text-align: right;
 
@@ -46,7 +46,6 @@
   }
 
   h3 {
-    padding: 1em;
     animation-delay: 0.3s;
   }
 }
