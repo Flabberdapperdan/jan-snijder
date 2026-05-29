@@ -2,17 +2,52 @@
   <div class="title-container">
     <h2>Exposities</h2>
   </div>
-  <section class="exhibits-container">
-    @for (exhibit of exhibits; track $index) {
-      <app-exhibit
-        [name]="exhibit.name"
-        [year]="exhibit.year"
-        [location]="exhibit.location"
-        [description]="exhibit.description"
-        [index]="$index"
-        [showInformation]="$index === currentIndex"
-        (panelClicked)="changeCurrentIndex($event)"
-      ></app-exhibit>
+  <section class="exhibits-wrapper">
+    <div class="exhibits-container">
+      @for (exhibit of visibleExhibits; track $index) {
+        <app-exhibit
+          [name]="exhibit.name"
+          [year]="exhibit.year"
+          [location]="exhibit.location"
+          [description]="exhibit.description"
+          [index]="$index"
+          [showInformation]="$index === currentIndex"
+          (panelClicked)="changeCurrentIndex($event)"
+        ></app-exhibit>
+      }
+    </div>
+
+    <div
+      class="exhibits-container exhibits-extra"
+      [class.expanded]="showAllExhibits"
+    >
+      @for (exhibit of extraExhibits; track $index) {
+        <app-exhibit
+          [name]="exhibit.name"
+          [year]="exhibit.year"
+          [location]="exhibit.location"
+          [description]="exhibit.description"
+          [index]="$index + visibleExhibits.length"
+          [showInformation]="$index + visibleExhibits.length === currentIndex"
+          (panelClicked)="changeCurrentIndex($event)"
+        ></app-exhibit>
+      }
+    </div>
+
+    @if (canExpandExhibits) {
+      <button
+        type="button"
+        class="exhibits-expander"
+        [class.expanded]="showAllExhibits"
+        (click)="toggleExhibitsExpansion()"
+        [attr.aria-label]="
+          showAllExhibits ? 'Toon minder exposities' : 'Toon meer exposities'
+        "
+      >
+        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </button>
     }
   </section>
 </article>
