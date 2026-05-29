@@ -3,8 +3,8 @@
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  padding: 0 1em;
-  max-width: 100vw;
+  /* padding: 0 1em; */
+  max-width: calc(100% - 2em);
 
   button {
     width: 3em;
@@ -52,7 +52,7 @@
 
 .carousel {
   --carousel-height: 300px;
-  --carousel-width: 80vw;
+  --carousel-width: 75vw;
 
   width: var(--carousel-width);
   height: var(--carousel-height);
@@ -192,8 +192,8 @@ img.painting-full-screen {
 /* mobile styles */
 @media (max-width: 768px) {
   img.painting {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
   }
 
   .painting-full-screen-wrapper {
@@ -206,6 +206,11 @@ img.painting-full-screen {
 }
 
 @media (max-width: 520px) {
+  img.painting {
+    width: 8rem;
+    height: 8rem;
+  }
+
   #paintings-container {
     padding: 0 max(20px, 10%);
   }
