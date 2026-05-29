@@ -1,6 +1,8 @@
 <article id="exposities" class="flex-column-wrapper">
-  <h2>Exposities</h2>
-  <div class="exhibits-container">
+  <div class="title-container">
+    <h2>Exposities</h2>
+  </div>
+  <section class="exhibits-container">
     @for (exhibit of exhibits; track $index) {
       <app-exhibit
         [name]="exhibit.name"
@@ -12,5 +14,5 @@
         (panelClicked)="changeCurrentIndex($event)"
       ></app-exhibit>
     }
-  </div>
+  </section>
 </article>

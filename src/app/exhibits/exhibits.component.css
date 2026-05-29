@@ -1,17 +1,53 @@
 #exposities {
-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  width: 90%;
+}
+
+.title-container {
+  grid-column: 1 / 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+
+  h2 {
+    margin: 3rem auto 0;
+  }
 }
 
 .exhibits-container {
+  grid-column: 2 / 3;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.3rem;
 
-  width: 60vw;
+  width: 100%;
+  max-width: max(90vw, 500px);
 
-  padding: 0 max(30px, 15%);
+  padding: 0 1.5em;
 }
+
+@media (max-width: 768px) {
+  #exposities {
+    grid-template-columns: 1fr;
+  }
+
+  .title-container {
+    grid-column: 1 / 2;
+  }
+
+  .exhibits-container {
+    grid-column: 1 / 2;
+    max-width: 100%;
+    padding: 0 1.5em;
+  }
+}
+
 @media (max-width: 520px) {
   .exhibits-container {
     padding: 0;
