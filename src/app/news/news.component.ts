@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { NewsService } from './service/news.service';
 import { NewsItem } from './news.types';
 
@@ -8,10 +15,13 @@ import { NewsItem } from './news.types';
   templateUrl: './news.component.html',
   styleUrl: './news.component.css',
 })
-export class NewsComponent implements OnInit, OnDestroy {
+export class NewsComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('newsRoot') newsRoot!: ElementRef<HTMLElement>;
+
   newsItems: NewsItem[] = [];
   activeIndex: number | null = 0;
   private activeItemInterval: ReturnType<typeof setInterval> | null = null;
+  private viewObserver: IntersectionObserver | null = null;
 
   constructor(private newsService: NewsService) {}
 
@@ -19,8 +29,25 @@ export class NewsComponent implements OnInit, OnDestroy {
     this.getNewsItems();
   }
 
+  ngAfterViewInit(): void {
+    this.viewObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          this.stopActiveCycle();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    this.viewObserver.observe(this.newsRoot.nativeElement);
+  }
+
   ngOnDestroy(): void {
     this.stopActiveCycle();
+    this.viewObserver?.disconnect();
+    this.viewObserver = null;
   }
 
   getNewsItems(): void {
