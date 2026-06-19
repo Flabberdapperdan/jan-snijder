@@ -108,4 +108,12 @@
     justify-self: center;
     max-width: 100%;
   }
+
+  .news-item-content {
+    width: 100%;
+  }
+
+  .news-item-image {
+    display: none;
+  }
 }
