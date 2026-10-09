@@ -32,6 +32,10 @@ export class NewsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    if (typeof IntersectionObserver === 'undefined' || !this.newsRoot?.nativeElement) {
+      return;
+    }
+
     this.viewObserver = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) {
