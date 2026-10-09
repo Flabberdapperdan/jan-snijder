@@ -4,6 +4,7 @@ import {
   Output,
   EventEmitter,
   OnDestroy,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 @Component({
@@ -11,6 +12,7 @@ import {
   standalone: true,
   imports: [],
   templateUrl: './exhibit.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './exhibit.component.css',
 })
 export class ExhibitComponent implements OnDestroy {

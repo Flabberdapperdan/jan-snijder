@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ExhibitComponent } from './exhibit/exhibit.component';
 import { ExhibitsService } from './service/exhibits.service';
 import { Exhibit } from './exhibits.types';
@@ -8,6 +8,7 @@ import { Exhibit } from './exhibits.types';
   standalone: true,
   imports: [ExhibitComponent],
   templateUrl: './exhibits.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './exhibits.component.css',
 })
 export class ExhibitsComponent implements OnInit {

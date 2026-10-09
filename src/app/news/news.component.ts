@@ -5,6 +5,7 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { NewsService } from './service/news.service';
 import { NewsItem } from './news.types';
@@ -13,6 +14,7 @@ import { NewsItem } from './news.types';
   selector: 'app-news',
   imports: [],
   templateUrl: './news.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './news.component.css',
 })
 export class NewsComponent implements OnInit, OnDestroy, AfterViewInit {

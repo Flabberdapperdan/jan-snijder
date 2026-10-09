@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { CarouselService } from './service/carousel.service';
 import { Painting, PaintingUrl } from './carousel.types';
 
@@ -8,6 +15,7 @@ import { Painting, PaintingUrl } from './carousel.types';
   imports: [],
   providers: [],
   templateUrl: './carousel.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './carousel.component.css',
 })
 export class CarouselComponent implements OnInit {

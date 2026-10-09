@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './footer.component.css',
 })
-export class FooterComponent {
-
-}
+export class FooterComponent {}

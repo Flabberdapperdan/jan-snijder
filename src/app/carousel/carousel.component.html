@@ -61,8 +61,10 @@
     <div class="painting-full-screen-wrapper">
       <img
         class="painting-full-screen"
-        [src]="selectedPainting?.url"
-        [alt]="`${selectedPainting?.title}--full-screen`"
+        [src]="$safeNavigationMigration(selectedPainting?.url)"
+        [alt]="
+          `${$safeNavigationMigration(selectedPainting?.title)}--full-screen`
+        "
       />
       <p>{{ selectedPainting?.title }}</p>
     </div>

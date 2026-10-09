@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HomeService } from './services/home.service';
 import { CarouselService } from '../carousel/service/carousel.service';
 
@@ -7,6 +7,7 @@ import { CarouselService } from '../carousel/service/carousel.service';
   standalone: true,
   imports: [],
   templateUrl: './home.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
