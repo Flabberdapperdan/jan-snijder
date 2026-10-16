@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { PageContentService } from './content/page-content.service';
 import { PageContent } from './content/page-content.types';
+import { Painting, PaintingUrl } from './carousel/carousel.types';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -36,21 +37,40 @@ export class AppComponent implements OnInit {
   };
   isLoading = true;
   hasContentError = false;
+  paintings: PaintingUrl[] = [];
+  arePaintingsLoading = true;
+  hasPaintingsError = false;
 
   constructor(private pageContentService: PageContentService) {}
 
   ngOnInit(): void {
-    this.pageContentService
-      .getPageContent()
-      .then((content) => {
-        this.pageContent = content;
-      })
-      .catch((error) => {
-        this.hasContentError = true;
-        console.error('Error fetching page content:', error);
-      })
-      .finally(() => {
-        this.isLoading = false;
-      });
+    void this.loadPageContent();
+    void this.loadPaintings();
+  }
+
+  private async loadPageContent(): Promise<void> {
+    try {
+      this.pageContent = await this.pageContentService.getPageContent();
+    } catch (error) {
+      this.hasContentError = true;
+      console.error('Error fetching page content:', error);
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  private async loadPaintings(): Promise<void> {
+    try {
+      const paintings = await this.pageContentService.getPaintings();
+      this.paintings = paintings.map((painting: Painting) => ({
+        url: this.pageContentService.urlFor(painting.image).url(),
+        title: painting.title,
+      }));
+    } catch (error) {
+      this.hasPaintingsError = true;
+      console.error('Error fetching paintings:', error);
+    } finally {
+      this.arePaintingsLoading = false;
+    }
   }
 }

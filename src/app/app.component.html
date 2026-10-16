@@ -2,9 +2,16 @@
 <app-header></app-header>
 <div class="body-wrapper">
   <hr class="desktop" />
-  <app-news [newsItems]="pageContent.newsItems"></app-news>
+  <app-news
+    [newsItems]="pageContent.newsItems"
+    [isLoading]="isLoading"
+  ></app-news>
   <hr />
-  <app-carousel></app-carousel>
+  <app-carousel
+    [paintings]="paintings"
+    [isLoading]="arePaintingsLoading"
+    [hasError]="hasPaintingsError"
+  ></app-carousel>
   <hr />
   <app-video
     [video]="pageContent.video"
@@ -12,7 +19,10 @@
     [hasError]="hasContentError"
   ></app-video>
   <hr />
-  <app-exhibits [exhibits]="pageContent.exhibits"></app-exhibits>
+  <app-exhibits
+    [exhibits]="pageContent.exhibits"
+    [isLoading]="isLoading"
+  ></app-exhibits>
   <hr />
   <app-footer></app-footer>
 </div>

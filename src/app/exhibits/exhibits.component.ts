@@ -19,6 +19,7 @@ export class ExhibitsComponent implements OnChanges {
   private readonly initialVisibleCount = 15;
 
   @Input() exhibits: Exhibit[] = [];
+  @Input() isLoading = true;
   visibleExhibits: Exhibit[] = [];
   extraExhibits: Exhibit[] = [];
   canExpandExhibits = false;

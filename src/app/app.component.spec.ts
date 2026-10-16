@@ -42,4 +42,14 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Jan Snijder');
   });
+
+  it('should stop showing the exhibits loading state after content loads', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    const exhibits = fixture.nativeElement.querySelector('#exposities');
+    expect(exhibits.textContent).toContain('Geen exposities beschikbaar.');
+  });
 });

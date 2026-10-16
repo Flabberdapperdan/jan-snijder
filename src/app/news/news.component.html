@@ -3,32 +3,42 @@
     <h2>Nieuws</h2>
   </div>
   <section class="news-items">
-    @for (newsItem of newsItems; track $index) {
-      <div
-        class="news-item inactive"
-        [class.active]="activeIndex === $index"
-        (click)="userToggleActive($index)"
-      >
-        <div class="news-item-content">
-          <h3>{{ newsItem.title }}</h3>
-          <div class="news-item-body">
-            <div class="news-item-body-content">
-              <p>{{ newsItem.text }}</p>
+    @if (isLoading) {
+      <p role="status">Nieuws laden...</p>
+    } @else if (newsItems.length === 0) {
+      <p role="status">Geen nieuws beschikbaar.</p>
+    } @else {
+      @for (newsItem of newsItems; track $index) {
+        <div
+          class="news-item inactive"
+          [class.active]="activeIndex === $index"
+          (click)="userToggleActive($index)"
+        >
+          <div class="news-item-content">
+            <h3>{{ newsItem.title }}</h3>
+            <div class="news-item-body">
+              <div class="news-item-body-content">
+                <p>{{ newsItem.text }}</p>
 
-              @if (newsItem.link) {
-                <a class="button" [href]="newsItem.link" target="_blank">{{
-                  newsItem.linkText ? newsItem.linkText : 'Lees meer'
-                }}</a>
-              }
+                @if (newsItem.link) {
+                  <a class="button" [href]="newsItem.link" target="_blank">{{
+                    newsItem.linkText ? newsItem.linkText : 'Lees meer'
+                  }}</a>
+                }
+              </div>
             </div>
           </div>
+          @if (newsItem.image) {
+            <div class="news-item-image desktop">
+              <img
+                class="desktop"
+                [src]="newsItem.image"
+                alt="{{ newsItem.title }}"
+              />
+            </div>
+          }
         </div>
-        @if (newsItem.image) {
-          <div class="news-item-image desktop">
-            <img class="desktop" [src]="newsItem.image" alt="{{ newsItem.title }}" />
-          </div>
-        }
-      </div>
+      }
     }
   </section>
 </article>

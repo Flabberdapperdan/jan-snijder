@@ -21,6 +21,7 @@ export class NewsComponent implements OnChanges, OnDestroy, AfterViewInit {
   @ViewChild('newsRoot') newsRoot!: ElementRef<HTMLElement>;
 
   @Input() newsItems: NewsItem[] = [];
+  @Input() isLoading = true;
 
   activeIndex: number | null = 0;
   private activeItemInterval: ReturnType<typeof setInterval> | null = null;

@@ -1,13 +1,12 @@
 import {
   Component,
   Input,
-  OnInit,
+  OnChanges,
   ViewChild,
   ElementRef,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { PageContentService } from '../content/page-content.service';
-import { Painting, PaintingUrl } from './carousel.types';
+import { PaintingUrl } from './carousel.types';
 
 @Component({
   selector: 'app-carousel',
@@ -18,34 +17,22 @@ import { Painting, PaintingUrl } from './carousel.types';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './carousel.component.css',
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnChanges {
   @Input() autoPlay: boolean = false;
   @Input() interval: number = 5000;
+  @Input() paintings: PaintingUrl[] = [];
+  @Input() isLoading = true;
+  @Input() hasError = false;
   @ViewChild('carouselContainer') carouselContainer!: ElementRef;
 
-  paintings: PaintingUrl[] = [];
   groupedPaintings: PaintingUrl[][] = [];
   selectedPainting: PaintingUrl | null = null;
   showSelectedPainting: boolean = false;
   timelines: string = '';
   maxIndex: number = 0;
 
-  constructor(private service: PageContentService) {}
-
-  ngOnInit(): void {
-    this.getPaintings();
-  }
-
-  getPaintings(): void {
-    this.service.getPaintings().then((data) => {
-      data.map((item: Painting) => {
-        this.paintings.push({
-          url: this.service.urlFor(item.image).url(),
-          title: item.title,
-        });
-      });
-      this.groupPaintingsByThree();
-    });
+  ngOnChanges(): void {
+    this.groupPaintingsByThree();
   }
 
   onClickPainting(painting: PaintingUrl): void {
@@ -76,6 +63,7 @@ export class CarouselComponent implements OnInit {
   groupPaintingsByThree(): void {
     this.groupedPaintings = [];
     this.timelines = '';
+    this.maxIndex = 0;
     for (let i = 0; i < this.paintings.length; i += 3) {
       if (i !== 0) {
         this.timelines += `, `;
