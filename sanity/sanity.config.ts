@@ -1,11 +1,11 @@
-import { defineConfig } from 'sanity';
-import { StructureBuilder, structureTool } from 'sanity/structure';
-import { visionTool } from '@sanity/vision';
-import { schemaTypes } from './schema-types';
-import { BookIcon } from '@sanity/icons';
+import {defineConfig} from 'sanity'
+import {StructureBuilder, structureTool} from 'sanity/structure'
+import {visionTool} from '@sanity/vision'
+import {schemaTypes} from './schema-types'
+import {BookIcon} from '@sanity/icons'
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
-const singletonTypes = new Set(['home'])
+const singletonTypes = new Set(['home', 'video'])
 
 const singletonListItem = (S: StructureBuilder, typeName: string, title?: string) =>
   S.listItem()
@@ -32,6 +32,7 @@ export default defineConfig({
             singletonListItem(S, 'home', 'Home'),
             S.documentTypeListItem('newsItem').title('Nieuws'),
             S.documentTypeListItem('painting').title('Schilderijen'),
+            singletonListItem(S, 'video', 'Video'),
             S.documentTypeListItem('exhibit').title('Exposities'),
           ]),
     }),

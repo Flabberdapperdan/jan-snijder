@@ -6,6 +6,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ExhibitsComponent } from './exhibits/exhibits.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
+import { VideoComponent } from './video/video.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { NewsComponent } from './news/news.component';
     ExhibitsComponent,
     HomeComponent,
     NewsComponent,
+    VideoComponent,
   ],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
