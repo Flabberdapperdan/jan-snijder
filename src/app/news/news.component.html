@@ -4,7 +4,7 @@
   </div>
   <section class="news-items">
     @if (isLoading) {
-      <p role="status">Nieuws laden...</p>
+      <app-skeleton-loader variant="news"></app-skeleton-loader>
     } @else if (newsItems.length === 0) {
       <p role="status">Geen nieuws beschikbaar.</p>
     } @else {

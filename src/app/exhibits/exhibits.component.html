@@ -4,7 +4,7 @@
   </div>
   <section>
     @if (isLoading) {
-      <p role="status">Exposities laden...</p>
+      <app-skeleton-loader variant="exhibits"></app-skeleton-loader>
     } @else if (exhibits.length === 0) {
       <p role="status">Geen exposities beschikbaar.</p>
     } @else {

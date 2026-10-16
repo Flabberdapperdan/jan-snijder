@@ -1,8 +1,8 @@
 <article id="home">
-  <h1>Jan Snijder</h1>
   @if (loading) {
-    <div class="img-loader"></div>
+    <app-skeleton-loader variant="hero"></app-skeleton-loader>
   } @else if (home?.image) {
+    <h1>Jan Snijder</h1>
     <img [src]="home.image" alt="Cover Image" class="cover-image" />
   }
   <h2>{{ home?.title ?? '' }}</h2>

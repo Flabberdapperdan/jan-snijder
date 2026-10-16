@@ -1,7 +1,7 @@
 <section id="video" class="video-section" aria-label="Video">
-    <h2>Video</h2>
+  <h2>Video</h2>
   @if (isLoading) {
-    <p class="video-message" role="status">Video laden...</p>
+    <app-skeleton-loader variant="video"></app-skeleton-loader>
   } @else if (hasError) {
     <p class="video-message" role="alert">De video kon niet worden geladen.</p>
   } @else if (video; as videoContent) {

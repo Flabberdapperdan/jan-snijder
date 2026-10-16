@@ -9,10 +9,11 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { NewsItem } from './news.types';
+import { SkeletonLoaderComponent } from '../shared/skeleton-loader/skeleton-loader.component';
 
 @Component({
   selector: 'app-news',
-  imports: [],
+  imports: [SkeletonLoaderComponent],
   templateUrl: './news.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './news.component.css',

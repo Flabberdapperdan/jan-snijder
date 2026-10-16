@@ -6,11 +6,12 @@ import {
 } from '@angular/core';
 import { ExhibitComponent } from './exhibit/exhibit.component';
 import { Exhibit } from './exhibits.types';
+import { SkeletonLoaderComponent } from '../shared/skeleton-loader/skeleton-loader.component';
 
 @Component({
   selector: 'app-exhibits',
   standalone: true,
-  imports: [ExhibitComponent],
+  imports: [ExhibitComponent, SkeletonLoaderComponent],
   templateUrl: './exhibits.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './exhibits.component.css',

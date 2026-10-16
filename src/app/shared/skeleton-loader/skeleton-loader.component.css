@@ -1,0 +1,144 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.skeleton {
+  --skeleton-base: color-mix(in srgb, var(--primary) 12%, white);
+  --skeleton-shine: color-mix(in srgb, var(--accent) 25%, white);
+
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.skeleton-line,
+.skeleton-news-image,
+.skeleton-artwork,
+.skeleton-video,
+.skeleton-exhibit,
+.skeleton-hero-title,
+.skeleton-hero-image,
+.skeleton-hero-copy {
+  background: linear-gradient(
+    100deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-shine) 45%,
+    var(--skeleton-base) 65%
+  );
+  background-size: 240% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+.skeleton-line {
+  width: 100%;
+  height: 0.75rem;
+  border-radius: 2px;
+}
+
+.skeleton-line-title {
+  width: 42%;
+  height: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.skeleton-line-short {
+  width: 64%;
+}
+
+.skeleton-news-item {
+  position: relative;
+  min-height: 6.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.skeleton-news-copy {
+  display: grid;
+  gap: 0.45rem;
+  width: 52%;
+}
+
+.skeleton-news-image {
+  position: absolute;
+  inset: 0.5rem 0.5rem 0.5rem auto;
+  width: 42%;
+  border-radius: 2px;
+}
+
+.skeleton-carousel {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.75rem, 4vw, 3rem);
+  width: 100%;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.skeleton-artwork {
+  width: min(24vw, 13rem);
+  aspect-ratio: 1;
+  flex: 0 1 13rem;
+  border-radius: 3px;
+}
+
+.skeleton-video {
+  width: min(100%, 60rem);
+  aspect-ratio: 16 / 9;
+  justify-self: center;
+  border-radius: 3px;
+}
+
+.skeleton-exhibit {
+  width: min(100%, 31.25rem);
+  height: 3.5rem;
+  justify-self: center;
+  border-radius: 3px;
+}
+
+.skeleton-hero-title {
+  width: min(16rem, 60%);
+  height: 2.5rem;
+  justify-self: start;
+}
+
+.skeleton-hero-image {
+  width: 100%;
+  min-height: 12rem;
+  flex: 1 1 auto;
+}
+
+.skeleton-hero-copy {
+  width: min(20rem, 70%);
+  height: 1.5rem;
+  justify-self: end;
+}
+
+.skeleton-hero-copy-short {
+  width: min(14rem, 52%);
+}
+
+@keyframes skeleton-shimmer {
+  to {
+    background-position: -240% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-news-copy {
+    width: 100%;
+  }
+
+  .skeleton-news-image {
+    display: none;
+  }
+}

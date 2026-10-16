@@ -7,11 +7,12 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { PaintingUrl } from './carousel.types';
+import { SkeletonLoaderComponent } from '../shared/skeleton-loader/skeleton-loader.component';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [],
+  imports: [SkeletonLoaderComponent],
   providers: [],
   templateUrl: './carousel.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,

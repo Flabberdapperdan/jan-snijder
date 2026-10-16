@@ -2,7 +2,7 @@
   <h2 class="link-heading">Werk</h2>
 
   @if (isLoading) {
-    <p role="status">Schilderijen laden...</p>
+    <app-skeleton-loader variant="carousel"></app-skeleton-loader>
   } @else if (hasError) {
     <p role="alert">Schilderijen konden niet worden geladen.</p>
   } @else if (paintings.length === 0) {

@@ -1,0 +1,40 @@
+<div class="skeleton" role="status" aria-label="Content laden" aria-busy="true">
+  @switch (variant) {
+    @case ('hero') {
+      <div class="skeleton-hero-title"></div>
+      <div class="skeleton-hero-image"></div>
+      <div class="skeleton-hero-copy"></div>
+      <div class="skeleton-hero-copy skeleton-hero-copy-short"></div>
+    }
+    @case ('news') {
+      @for (placeholder of placeholders; track placeholder) {
+        <div class="skeleton-news-item">
+          <div class="skeleton-news-copy">
+            <div class="skeleton-line skeleton-line-title"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line skeleton-line-short"></div>
+          </div>
+          <div class="skeleton-news-image"></div>
+        </div>
+      }
+    }
+    @case ('carousel') {
+      <div class="skeleton-carousel">
+        @for (placeholder of [0, 1, 2]; track placeholder) {
+          <div class="skeleton-artwork"></div>
+        }
+      </div>
+    }
+    @case ('video') {
+      <div class="skeleton-video"></div>
+      <div class="skeleton-line skeleton-line-title"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line skeleton-line-short"></div>
+    }
+    @case ('exhibits') {
+      @for (placeholder of placeholders; track placeholder) {
+        <div class="skeleton-exhibit"></div>
+      }
+    }
+  }
+</div>
