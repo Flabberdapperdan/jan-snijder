@@ -31,9 +31,9 @@
     "typescript": "^5.8"
   },
   "prettier": {
-    "semi": false,
+    "semi": true,
     "printWidth": 100,
-    "bracketSpacing": false,
+    "bracketSpacing": true,
     "singleQuote": true
   },
   "allowScripts": {
