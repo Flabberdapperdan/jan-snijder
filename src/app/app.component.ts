@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { PageContentService } from './content/page-content.service';
+import { PageContent } from './content/page-content.types';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,6 +26,31 @@ import { VideoComponent } from './video/video.component';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'jan-snijder';
+  pageContent: PageContent = {
+    home: null,
+    newsItems: [],
+    exhibits: [],
+    video: null,
+  };
+  isLoading = true;
+  hasContentError = false;
+
+  constructor(private pageContentService: PageContentService) {}
+
+  ngOnInit(): void {
+    this.pageContentService
+      .getPageContent()
+      .then((content) => {
+        this.pageContent = content;
+      })
+      .catch((error) => {
+        this.hasContentError = true;
+        console.error('Error fetching page content:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
 }

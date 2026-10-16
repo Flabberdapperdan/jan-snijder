@@ -1,5 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { VideoService } from './service/video.service';
+import { Component, Input } from '@angular/core';
 import { Video } from './video.types';
 
 @Component({
@@ -8,20 +7,8 @@ import { Video } from './video.types';
   styleUrl: './video.component.css',
   templateUrl: './video.component.html',
 })
-export class VideoComponent implements OnInit {
-  private readonly videoService = inject(VideoService);
-
-  video: Video | null = null;
-  isLoading = true;
-  hasError = false;
-
-  async ngOnInit(): Promise<void> {
-    try {
-      this.video = await this.videoService.getVideo();
-    } catch {
-      this.hasError = true;
-    } finally {
-      this.isLoading = false;
-    }
-  }
+export class VideoComponent {
+  @Input() video: Video | null = null;
+  @Input() isLoading = true;
+  @Input() hasError = false;
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { HomeService } from './services/home.service';
-import { CarouselService } from '../carousel/service/carousel.service';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Home } from './home.types';
 
 @Component({
   selector: 'app-home',
@@ -10,33 +9,7 @@ import { CarouselService } from '../carousel/service/carousel.service';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
-  title: string = '';
-  subtitle: string = '';
-  coverImageUrl: string = '';
-  loading: boolean = false;
-
-  constructor(
-    private homeService: HomeService,
-    private carouselService: CarouselService
-  ) {}
-
-  ngOnInit(): void {
-    this.getContent();
-  }
-
-  getContent(): void {
-    this.loading = true;
-    this.homeService
-      .getContent()
-      .then((data) => {
-        this.title = data[0].title;
-        this.subtitle = data[0].subtitle;
-        this.coverImageUrl = this.carouselService.urlFor(data[0].image).url();
-        this.loading = false;
-      })
-      .catch((error) => {
-        console.error('Error fetching home content:', error);
-      });
-  }
+export class HomeComponent {
+  @Input() home: Home | null = null;
+  @Input() loading = true;
 }

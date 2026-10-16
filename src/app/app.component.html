@@ -1,14 +1,18 @@
-<app-home></app-home>
+<app-home [home]="pageContent.home" [loading]="isLoading"></app-home>
 <app-header></app-header>
 <div class="body-wrapper">
   <hr class="desktop" />
-  <app-news></app-news>
+  <app-news [newsItems]="pageContent.newsItems"></app-news>
   <hr />
   <app-carousel></app-carousel>
   <hr />
-  <app-video></app-video>
+  <app-video
+    [video]="pageContent.video"
+    [isLoading]="isLoading"
+    [hasError]="hasContentError"
+  ></app-video>
   <hr />
-  <app-exhibits></app-exhibits>
+  <app-exhibits [exhibits]="pageContent.exhibits"></app-exhibits>
   <hr />
   <app-footer></app-footer>
 </div>

@@ -1,6 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ExhibitComponent } from './exhibit/exhibit.component';
-import { ExhibitsService } from './service/exhibits.service';
 import { Exhibit } from './exhibits.types';
 
 @Component({
@@ -11,23 +15,18 @@ import { Exhibit } from './exhibits.types';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './exhibits.component.css',
 })
-export class ExhibitsComponent implements OnInit {
+export class ExhibitsComponent implements OnChanges {
   private readonly initialVisibleCount = 15;
 
-  exhibits: Exhibit[] = [];
+  @Input() exhibits: Exhibit[] = [];
   visibleExhibits: Exhibit[] = [];
   extraExhibits: Exhibit[] = [];
   canExpandExhibits = false;
   currentIndex: number | null = null;
   showAllExhibits = false;
 
-  constructor(private service: ExhibitsService) {}
-
-  ngOnInit(): void {
-    this.service.getExhibits().then((data) => {
-      this.exhibits = data;
-      this.syncExhibitsLists();
-    });
+  ngOnChanges(): void {
+    this.syncExhibitsLists();
   }
 
   changeCurrentIndex(index: number | null): void {

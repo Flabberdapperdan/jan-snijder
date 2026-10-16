@@ -3,11 +3,11 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  OnInit,
+  OnChanges,
+  Input,
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { NewsService } from './service/news.service';
 import { NewsItem } from './news.types';
 
 @Component({
@@ -17,22 +17,25 @@ import { NewsItem } from './news.types';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './news.component.css',
 })
-export class NewsComponent implements OnInit, OnDestroy, AfterViewInit {
+export class NewsComponent implements OnChanges, OnDestroy, AfterViewInit {
   @ViewChild('newsRoot') newsRoot!: ElementRef<HTMLElement>;
 
-  newsItems: NewsItem[] = [];
+  @Input() newsItems: NewsItem[] = [];
+
   activeIndex: number | null = 0;
   private activeItemInterval: ReturnType<typeof setInterval> | null = null;
   private viewObserver: IntersectionObserver | null = null;
 
-  constructor(private newsService: NewsService) {}
-
-  ngOnInit(): void {
-    this.getNewsItems();
+  ngOnChanges(): void {
+    this.activeIndex = this.newsItems.length > 0 ? 0 : null;
+    this.startActiveCycle();
   }
 
   ngAfterViewInit(): void {
-    if (typeof IntersectionObserver === 'undefined' || !this.newsRoot?.nativeElement) {
+    if (
+      typeof IntersectionObserver === 'undefined' ||
+      !this.newsRoot?.nativeElement
+    ) {
       return;
     }
 
@@ -54,15 +57,6 @@ export class NewsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.stopActiveCycle();
     this.viewObserver?.disconnect();
     this.viewObserver = null;
-  }
-
-  getNewsItems(): void {
-    this.newsItems = [];
-    this.newsService.getNewsItems().then((items) => {
-      this.newsItems = items;
-      this.activeIndex = items.length > 0 ? 0 : null;
-      this.startActiveCycle();
-    });
   }
 
   userToggleActive(index: number): void {

@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing'
+import { TestBed } from '@angular/core/testing';
 
-import { SanityService } from './carousel.service'
+import { CarouselService } from './carousel.service';
 
-describe('SanityService', () => {
-  let service: SanityService
+describe('CarouselService', () => {
+  let service: CarouselService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({})
-    service = TestBed.inject(SanityService)
-  })
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(CarouselService);
+  });
 
   it('should be created', () => {
-    expect(service).toBeTruthy()
-  })
-})
+    expect(service).toBeTruthy();
+  });
+});
