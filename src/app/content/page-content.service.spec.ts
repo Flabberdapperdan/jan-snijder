@@ -33,4 +33,15 @@ describe('PageContentService', () => {
     expect(fetchSpy.mock.calls[0][0]).toContain('"video"');
     expect(fetchSpy.mock.calls[0][0]).not.toContain('"paintings"');
   });
+
+  it('fetches paintings through a separate query', async () => {
+    const fetchSpy = vi.spyOn(client, 'fetch').mockResolvedValue([] as never);
+    const service = new PageContentService();
+
+    await expect(service.getPaintings()).resolves.toEqual([]);
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy.mock.calls[0][0]).toContain('_type == "painting"');
+    expect(fetchSpy.mock.calls[0][0]).not.toContain('"newsItems"');
+  });
 });

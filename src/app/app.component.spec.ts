@@ -11,6 +11,7 @@ describe('AppComponent', () => {
         {
           provide: PageContentService,
           useValue: {
+            getPaintings: async () => [],
             getPageContent: async () => ({
               home: null,
               newsItems: [],

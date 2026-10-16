@@ -6,6 +6,7 @@ import { Exhibit } from '../exhibits/exhibits.types';
 import { Home } from '../home/home.types';
 import { NewsItem } from '../news/news.types';
 import { Video } from '../video/video.types';
+import { Painting } from '../carousel/carousel.types';
 
 interface RawPageContent {
   home: (Omit<Home, 'image'> & { image: unknown }) | null;
@@ -26,6 +27,13 @@ interface RawPageContent {
 })
 export class PageContentService {
   private pageContentRequest?: Promise<PageContent>;
+  private readonly PAINTINGS_QUERY = `
+    *[_type == "painting"]{
+      _id,
+      image,
+      title
+    }
+  `;
 
   private readonly PAGE_CONTENT_QUERY = `
     {
@@ -72,6 +80,12 @@ export class PageContentService {
 
     return this.pageContentRequest;
   }
+
+  async getPaintings(): Promise<Painting[]> {
+    return await client.fetch<Painting[]>(this.PAINTINGS_QUERY, {}, {});
+  }
+
+  urlFor = (source: any) => imageUrlBuilder(client).image(source);
 
   private normalizeContent(content: RawPageContent): PageContent {
     const imageBuilder = imageUrlBuilder(client);

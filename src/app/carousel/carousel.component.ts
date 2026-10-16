@@ -6,7 +6,7 @@ import {
   ElementRef,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { CarouselService } from './service/carousel.service';
+import { PageContentService } from '../content/page-content.service';
 import { Painting, PaintingUrl } from './carousel.types';
 
 @Component({
@@ -30,7 +30,7 @@ export class CarouselComponent implements OnInit {
   timelines: string = '';
   maxIndex: number = 0;
 
-  constructor(private service: CarouselService) {}
+  constructor(private service: PageContentService) {}
 
   ngOnInit(): void {
     this.getPaintings();
