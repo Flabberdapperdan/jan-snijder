@@ -1,1 +1,26 @@
-<p>video works!</p>
+<section id="video" class="video-section" aria-label="Video">
+    <h2>Video</h2>
+  @if (isLoading) {
+    <p class="video-message" role="status">Video laden...</p>
+  } @else if (hasError) {
+    <p class="video-message" role="alert">De video kon niet worden geladen.</p>
+  } @else if (video; as videoContent) {
+    <div class="video-copy">
+      <h3>{{ videoContent.title || 'Video' }}</h3>
+      @if (videoContent.description) {
+        <p>{{ videoContent.description }}</p>
+      }
+    </div>
+    <video
+      class="video-player"
+      controls
+      preload="metadata"
+      [src]="videoContent.videoUrl"
+      [attr.aria-label]="videoContent.title || 'Video'"
+    >
+      Je browser ondersteunt geen video-element.
+    </video>
+  } @else {
+    <p class="video-message" role="status">Er is geen video beschikbaar.</p>
+  }
+</section>
