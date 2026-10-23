@@ -1,5 +1,5 @@
 <section id="video" class="video-section" aria-label="Video">
-    <h2>Video</h2>
+  <h2>Video</h2>
   @if (isLoading) {
     <p class="video-message" role="status">Video laden...</p>
   } @else if (hasError) {
@@ -11,15 +11,18 @@
         <p>{{ videoContent.description }}</p>
       }
     </div>
-    <video
-      class="video-player"
-      controls
-      preload="metadata"
-      [src]="videoContent.videoUrl"
-      [attr.aria-label]="videoContent.title || 'Video'"
-    >
-      Je browser ondersteunt geen video-element.
-    </video>
+    @if (sanitizedVideoUrl) {
+      <iframe
+        title="vimeo-player"
+        [src]="sanitizedVideoUrl"
+        width="640"
+        height="360"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        allowfullscreen
+      ></iframe>
+    }
   } @else {
     <p class="video-message" role="status">Er is geen video beschikbaar.</p>
   }
